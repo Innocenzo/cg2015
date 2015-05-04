@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Bracket</title> 
+  <style>
+    body{
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #stats {  /* Align stats top-left */
+      position: absolute;
+      left: 0px;
+      top: 0px;
+    }
+  </style> 
+  </head>
+  <body>
+  <!-- JavaScript libraries -->
+  <!-- <script src="assets/jQuery-v2.1.1.js"></script> 
+  <script src="assets/three.js"></script>
+  <script src="assets/Stats.min.js"></script>
+  <script src="assets/dat.gui.min.js"></script> -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
+  <script src="assets/libs/TrackballControls.js"></script>
+  <!-- Javascript code that runs our Three.js examples --> 
+  <script>
+    // once everything is loaded, we run our Three.js stuff.
+    $(function () {
+
+      var stats = initStats();
+
+      // create a scene, that will hold all our elements such as objects, cameras and lights.
+      var scene = new THREE.Scene();
+
+      // create a camera, which defines where we're looking at.
+      var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+      // create a render and set the size
+      var webGLRenderer = new THREE.WebGLRenderer();
+      webGLRenderer.setClearColor(new THREE.Color(0xEEEEEE, 1.0));
+      webGLRenderer.setSize(window.innerWidth, window.innerHeight);
+      //webGLRenderer.shadowMapEnabled = true;
+
+      // create trackball controls
+      //var trackballControls = new THREE.TrackballControls(camera);
+
+      // create the ground plane
+      var planeGeometry = new THREE.PlaneGeometry(60,60);
+      var planeMaterial =  new THREE.MeshLambertMaterial({color: 0xf0ffff});
+      var plane = new THREE.Mesh(planeGeometry,planeMaterial);
+
+      // rotate and position the plane
+      plane.rotation.x=-0.5*Math.PI;
+      //plane.position.set(15,0,0);
+
+      // add the plane to the scene
+      scene.add(plane);
+
+      // create a torus
+      
+      var torusGeometry = new THREE.TorusGeometry(4, 1,16,16);
+      var torusMaterial = new THREE.MeshLambertMaterial({color: 0xff0000});
+      var torus = new THREE.Mesh(torusGeometry, torusMaterial);
+
+      // position the torus
+      torus.position.set(0,0,0);
+      torus.rotation.x = -Math.PI/2;
+
+      // add the torus to the scene
+      scene.add(torus);
+
+      // create sphere
+      var sphereGeometry = new THREE.SphereGeometry(4,32,32);
+      var sphereMaterial = new THREE.MeshLambertMaterial({color: 0x0000ff});
+      var sphere = new THREE.Mesh(sphereGeometry,sphereMaterial);
+
+      // position the sphere
+      sphere.position.set(0,0,0);
+      sphere.rotation.x = Math.PI/2 
+
+      // add the torus to the scene
+      torus.add(sphere);
+
+      //create Cylinder
+      var cylinderGeometry = new THREE.CylinderGeometry(2,0.01,10,32);
+      var cylinderMaterial = new THREE.MeshLambertMaterial({color: 0x00ff00});
+      var cylinder = new THREE.Mesh(cylinderGeometry,cylinderMaterial);
+      //create Cylinder
+      var cylinderGeometry = new THREE.CylinderGeometry(0.01,2,10,32);
+      
+      var cylinder2 = new THREE.Mesh(cylinderGeometry,cylinderMaterial);
+
+      // position the cylinder
+      cylinder.position.set(0,7,0);
+      cylinder2.position.set(0,17,0);
+
+      //add the cylinder to the scene
+      sphere.add(cylinder);
+      sphere.add(cylinder2);  
+
+      // create sphere
+      var sphereGeometry = new THREE.SphereGeometry(4,32,32);
+      
+      var sphere2 = new THREE.Mesh(sphereGeometry,sphereMaterial);
+
+      // position the sphere
+      sphere2.position.set(0,17,0); 
+      sphere2.rotation.x = Math.PI/2;
+      // add the cylinder to the scene
+      cylinder.add(sphere2);
+
+      //create Cylinder
+      var cylinderGeometry = new THREE.CylinderGeometry(2,0.01,10,32);
+      var cylinder3 = new THREE.Mesh(cylinderGeometry,cylinderMaterial);
+      //create Cylinder
+      var cylinderGeometry = new THREE.CylinderGeometry(0.01,2,10,32);
+      
+      var cylinder4 = new THREE.Mesh(cylinderGeometry,cylinderMaterial);
+
+      // position the cylinder
+      cylinder3.position.set(0,7,0);
+      cylinder4.position.set(0,17,0);
+
+      //add the cylinder to the scene
+      sphere2.add(cylinder3);
+      sphere2.add(cylinder4); 
+
+      //create Cylinder
+      var cylinderGeometry = new THREE.CylinderGeometry(1,1,10,32);
+      var cylinder5 = new THREE.Mesh(cylinderGeometry,cylinderMaterial);
+
+      // position the cylinder
+      cylinder5.position.set(0,5,0);
+      cylinder5.rotation.x = -Math.PI/2;
+
+      //add the cylinder to the scene
+      cylinder4.add(cylinder5);
+
+      //create cube
+      var geometry = new THREE.BoxGeometry( 4, 8, 2  );
+      var cube = new THREE.Mesh( geometry, torusMaterial );
+      var cube2 = new THREE.Mesh( geometry, torusMaterial );
+      cube.rotation.x = -Math.PI/2;
+      cube.position.set(0,4,3);
+      cube2.rotation.x = -Math.PI/2;
+      cube2.position.set(0,-4,3);
+      cylinder5.add(cube);
+      cylinder5.add(cube2);
+            
+      // add subtle ambient lighting
+      var ambientLight = new THREE.AmbientLight(0x0c0c0c);
+      scene.add(ambientLight);
+
+      // add spotlight for the shadows
+      var spotLight = new THREE.SpotLight( 0xffffff );
+      spotLight.position.set(-40,60,-10);
+      scene.add(spotLight);
+      // position and point the camera to the center of the scene
+      camera.position.set(-30,40,50);
+      camera.lookAt(new THREE.Vector3(10, 0, 0));
+
+      // add the output of the renderer to the html element
+      $('body').append(webGLRenderer.domElement);
+
+      // call the render function
+      var step = 0;
+
+
+      // setup the control gui
+      var controls = new function () {
+        // we need the first child, since it's a multimaterial
+        this.showAxisHelper = true;
+	    this.type = 'Torus';
+		this.axes = 'x';
+		this.TORUStraslation = 0;
+    this.SPHERErotation = 90;
+    this.CUBEtranslation = 4;
+		this.selectFigure = function () {
+          
+
+          switch (controls.type) {
+            case 'Torus':
+               switch(controls.axes){
+               	case 'x':
+               		torus.position.x = controls.TORUStraslation;
+               	break;
+               	case 'y':
+               		torus.position.y = controls.TORUStraslation;
+               	break;
+               	case 'z':
+               		torus.position.z = controls.TORUStraslation;
+               	break;
+               	
+               }                                            
+              break;
+            case 'Sphere':
+              	switch(controls.axes){
+               	case 'x':
+               		sphere.rotation.x = controls.SPHERErotation/180 * Math.PI;
+               	break;
+               	case 'y':
+               		sphere.rotation.y = controls.SPHERErotation/180 * Math.PI;
+               	break;
+               	case 'z':
+               		sphere.rotation.z = controls.SPHERErotation/180 * Math.PI;
+               	break;
+               	
+               }               
+              break;
+              case 'Sphere2':
+                switch(controls.axes){
+                case 'x':
+                  sphere2.rotation.x = controls.SPHERErotation/180 * Math.PI;
+                break;
+                case 'y':
+                  sphere2.rotation.y = controls.SPHERErotation/180 * Math.PI;
+                break;
+                case 'z':
+                  sphere2.rotation.z = controls.SPHERErotation/180 * Math.PI;
+                break;
+                
+               }               
+              break;
+            case 'Cylinder':
+              	switch(controls.axes){
+               	case 'x':
+               		cube.position.y = controls.CUBEtranslation;
+                  cube2.position.y = -controls.CUBEtranslation;
+               	break;
+               	case 'y':
+               		cube.position.y = controls.CUBEtranslation;
+                  cube2.position.y = -controls.CUBEtranslation;
+               	break;
+               	case 'z':
+               		cube.position.y = controls.CUBEtranslation;
+                  cube2.position.y = -controls.CUBEtranslation;
+               	break;
+               	
+               }              
+              break;
+          }
+        };
+      }
+
+      var gui = new dat.GUI();
+      gui.add(controls, 'type', ['Torus','Sphere','Sphere2','Cylinder']).onChange(controls.selectFigure);
+      gui.add(controls, 'axes', ['x','y','z']).onChange(controls.selectFigure);
+      gui.add(controls,'TORUStraslation',-25,25).onChange(controls.selectFigure);
+      gui.add(controls,'SPHERErotation',-180,180).onChange(controls.selectFigure);
+      gui.add(controls,'CUBEtranslation',1,4).onChange(controls.selectFigure);
+      render();
+
+      
+
+      function render() {
+        stats.update();
+        //trackballControls.update();
+
+       
+
+        // render using requestAnimationFrame
+        requestAnimationFrame(render);
+        webGLRenderer.render(scene, camera);
+      }
+
+      function initStats() {
+        var stats = new Stats();
+        stats.setMode(0); // 0: fps, 1: ms
+        $('body').append(stats.domElement);
+        return stats;
+      }
+    });
+  </script>  
+ </body>
+</html>
