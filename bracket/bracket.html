@@ -164,7 +164,7 @@
 
       //create pliers      
       var geometry = new THREE.BoxGeometry( 2, 6, 0.2  );
-      var pliersMaterial = new THREE.MeshPhongMaterial( { color: 0xff0000, envMap: textureCube, combine: THREE.MixOperation, reflectivity: 0.1 } );
+      var pliersMaterial = new THREE.MeshPhongMaterial( { color: 0xff0000 } );
       var plier = new THREE.Mesh( geometry, pliersMaterial );
       var plier2 = new THREE.Mesh( geometry, pliersMaterial );
       plier.castShadow = true;
@@ -178,7 +178,7 @@
 
 
       // position and point the camera to the center of the scene
-      camera.position.set(-15,80,20);
+      camera.position.set(-30,60,30);
       camera.lookAt(new THREE.Vector3(10, 0, 0));
 
       // add subtle ambient lighting
@@ -191,6 +191,11 @@
       spotLight0.position.set(-40, 60, -10);
       spotLight0.lookAt(plane);
       scene.add(spotLight0);
+      // add spotlight for a bit of light
+      var spotLight2 = new THREE.SpotLight(0xcccccc);
+      spotLight2.position.set(-40, 60, 10);
+      spotLight2.lookAt(plane);
+      scene.add(spotLight2);
 
       var target = new THREE.Object3D();
       target.position = new THREE.Vector3(5, 0, 0);
