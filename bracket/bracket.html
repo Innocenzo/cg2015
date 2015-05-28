@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>Bracket</title> 
+  <style>
+    body{
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #stats {  /* Align stats top-left */
+      position: absolute;
+      left: 0px;
+      top: 0px;
+    }
+  </style> 
+  </head>
+  <body>
+  <!-- JavaScript libraries -->
+  <!-- <script src="assets/jQuery-v2.1.1.js"></script> 
+  <script src="assets/three.js"></script>
+  <script src="assets/Stats.min.js"></script>
+  <script src="assets/dat.gui.min.js"></script> -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
+  <script src="assets/libs/TrackballControls.js"></script>
+  <!-- Javascript code that runs our Three.js examples --> 
+  <script>
+    // once everything is loaded, we run our Three.js stuff.
+    $(function () {
+
+      var stats = initStats();
+
+      // create a scene, that will hold all our elements such as objects, cameras and lights.
+      var scene = new THREE.Scene();
+
+      // create a camera, which defines where we're looking at.
+      var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+      // create a render and set the size
+      var webGLRenderer = new THREE.WebGLRenderer();
+      webGLRenderer.setClearColor(new THREE.Color(0xEEEEEE, 1.0));
+      webGLRenderer.setSize(window.innerWidth, window.innerHeight);
+      webGLRenderer.shadowMapEnabled = true;
+
+      // create trackball controls
+      var trackballControls = new THREE.TrackballControls(camera);
+      // create the ground plane
+      var planeGeometry = new THREE.PlaneGeometry(60,60);
+      var planeMaterial =  new THREE.MeshPhongMaterial( { color: 0xaa9944, specular:0xbbaa99, shininess:10, envMap: textureCube, combine: THREE.MixOperation, reflectivity: 0.5 } );
+      var plane = new THREE.Mesh(planeGeometry,planeMaterial);
+      plane.receiveShadow = true;
+      // rotate and position the plane
+      plane.rotation.x=-0.5*Math.PI;           
+      // add the plane to the scene
+      scene.add(plane);
+
+      // create  obj
+      var  obj = new THREE.Object3D(); 
+         
+      var torusGeometry = new THREE.TorusGeometry(4, 2 ,16,16);
+      var torusMaterial = new THREE.MeshPhongMaterial( { color: 0x150505, specular:0xee6600, shininess:10, envMap: textureCube, combine: THREE.MixOperation, reflectivity: 0.5 } ) ;
+      var torus = new THREE.Mesh(torusGeometry, torusMaterial);
+      torus.castShadow = true;
+      // position the torus      
+      torus.rotation.x = -Math.PI/2;
+      obj.add(torus);      
+      //add the obj to the scene      
+      scene.add(obj);
+
+      // create sphere
+      
+      var sphereGeometry = new THREE.SphereGeometry(4,32,32);
+      var sphereMaterial = new THREE.MeshPhongMaterial( { color: 0x150505, specular:0xee6600, shininess:10, envMap: textureCube, combine: THREE.MixOperation, reflectivity: 0.5 });
+      var sphere = new THREE.Mesh(sphereGeometry,sphereMaterial);
+      sphere.castShadow = true;
+      obj.add(sphere);
+      
+      //scene.add( obj);
+
+      //create strut            
+      var strutGeometry = new THREE.BoxGeometry( 4, 20, 4  );
+      var strutMaterial = new THREE.MeshPhongMaterial( { color: 0x150505, specular:0xee6600, shininess:10, envMap: textureCube, combine: THREE.MixOperation, reflectivity: 0.5 });
+      
+      var strut = new THREE.Mesh(strutGeometry,strutMaterial);      
+      
+
+      // position the strut
+      var  obj1 = new THREE.Object3D();  
+      obj1.add(strut);
+      sphere.add(obj1);      
+      strut.position.set(0,10,0);  
+      strut.castShadow = true;    
+      var axisHelper = new THREE.AxisHelper( 30 );      
+      obj1.add(axisHelper);
+
+      //create torus and sphere up 
+      var  obj2 = new THREE.Object3D(); 
+      var  obj3 = new THREE.Object3D();   
+      var torusGeometry = new THREE.TorusGeometry(4, 1,16,16);
+      var torusMaterial = new THREE.MeshLambertMaterial({color: 0xff0000});
+      var torus2 = new THREE.Mesh(torusGeometry, torusMaterial);
+      // create sphere
+      var sphereGeometry = new THREE.SphereGeometry(3,32,32);      
+      var sphere2 = new THREE.Mesh(sphereGeometry,sphereMaterial);
+      torus2.castShadow = true;
+      sphere2.castShadow = true;
+
+      // position the torus
+      //torus2.rotation.y = -Math.PI/2;
+      //torus2.rotation.x = Math.PI/4;
+      var axisHelper = new THREE.AxisHelper( 30 );      
+      //sphere2.add(axisHelper);
+      obj1.add(obj2);      
+      //obj2.add(torus2);      
+      obj2.add(sphere2);
+      obj2.add(obj3);
+      obj2.position.set(0,20,0)  
+      obj3.rotation.z=Math.PI/2;
+
+      //create arm 
+      var obj4 = new THREE.Object3D(); 
+      var r = "textures/cube/SwedishRoyalCastle/";
+        var urls = [ r + "px.jpg", r + "nx.jpg",
+               r + "py.jpg", r + "ny.jpg",
+               r + "pz.jpg", r + "nz.jpg" ];
+        var textureCube = THREE.ImageUtils.loadTextureCube( urls ); 
+      var armMaterial = new THREE.MeshPhongMaterial( { color: 0x150505, specular:0xee6600, shininess:10, envMap: textureCube, combine: THREE.MixOperation, reflectivity: 0.01 } ) 
+      var geometry = new THREE.BoxGeometry( 1, 16, 1  );
+      var arm1 = new THREE.Mesh( geometry, armMaterial );
+      var arm2 = new THREE.Mesh( geometry, armMaterial );  
+      var arm3 = new THREE.Mesh( geometry, armMaterial );
+      var arm4 = new THREE.Mesh( geometry, armMaterial );
+      arm2.castShadow = true;
+      arm2.castShadow = true;
+      arm2.castShadow = true;
+      arm2.castShadow = true;
+
+      obj3.add(obj4);   
+      obj4.add(arm1);  
+      arm1.position.set(1,0,-1);  
+
+      obj4.add(arm2);
+      arm2.position.set(1,0,1);
+
+      obj4.add(arm3);
+      arm3.position.set(-1,0,-1);
+
+      obj4.add(arm4);
+      arm4.position.set(-1,0,1);
+
+      obj4.position.set(0,8,0);
+      
+      //create Cylinder
+      var cylinderGeometry = new THREE.CylinderGeometry(1.5,1.5,4,32);
+      var cylinder = new THREE.Mesh(cylinderGeometry,sphereMaterial);
+
+      obj4.add(cylinder);
+      cylinder.position.set(0,8,0);
+      cylinder.rotation.x = -Math.PI/2;
+      
+
+      //create pliers      
+      var geometry = new THREE.BoxGeometry( 2, 6, 0.2  );
+      var pliersMaterial = new THREE.MeshPhongMaterial( { color: 0xff0000, envMap: textureCube, combine: THREE.MixOperation, reflectivity: 0.1 } );
+      var plier = new THREE.Mesh( geometry, pliersMaterial );
+      var plier2 = new THREE.Mesh( geometry, pliersMaterial );
+      plier.castShadow = true;
+      plier2.castShadow = true;
+      obj4.add(plier);
+      plier.position.set(0,11,1.9);
+
+      obj4.add(plier2);   
+      plier2.position.set(0,11,-1.9);
+      
+
+
+      // position and point the camera to the center of the scene
+      camera.position.set(-15,80,20);
+      camera.lookAt(new THREE.Vector3(10, 0, 0));
+
+      // add subtle ambient lighting
+      var ambiColor = "#1c1c1c";
+      var ambientLight = new THREE.AmbientLight(ambiColor);
+      scene.add(ambientLight);
+
+      // add spotlight for a bit of light
+      var spotLight0 = new THREE.SpotLight(0xcccccc);
+      spotLight0.position.set(-40, 60, -10);
+      spotLight0.lookAt(plane);
+      scene.add(spotLight0);
+
+      var target = new THREE.Object3D();
+      target.position = new THREE.Vector3(5, 0, 0);
+
+      var pointColor = "#ffffff";
+      var spotLight = new THREE.SpotLight(pointColor);
+      spotLight.position.set(-15, 50, 20);
+      spotLight.target = plane;
+      spotLight.distance = 45;
+      spotLight.angle = 0.75;
+      spotLight.exponent = 50;
+
+      // set shadow properties - try to change these values
+      spotLight.castShadow = true;
+      spotLight.shadowCameraNear = 2;
+      spotLight.shadowCameraFar = 70;
+      spotLight.shadowCameraFov = 70;
+      spotLight.shadowDarkness = 1;
+      spotLight.shadowMapWidth = 1024;
+      spotLight.shadowMapHeight = 1024;
+      spotLight.shadow;
+
+      scene.add(spotLight);      
+
+      // add the output of the renderer to the html element
+      $('body').append(webGLRenderer.domElement);
+
+      // call the render function
+      var step = 0;
+
+
+      // setup the control gui
+      var controls = new function () {
+      
+      //folder 1
+      this.TRASLATIONX = 0;
+      this.TRASLATIONZ = 0;
+      //folder 2
+      this.ROTATIONY= 90;
+      this.ROTATIONZ= 45;
+      this.ROTATIONYY= 0;
+      this.ROTATIONZZ= 90;
+      this.LOCK=1;
+
+      this.Traslation = function(){
+         obj.position.x = controls.TRASLATIONX;
+         obj.position.z = controls.TRASLATIONZ;
+      }
+      this.Rotation = function(){
+         obj.rotation.y = controls.ROTATIONY/180 * Math.PI;
+      }
+      this.Rotation2 = function(){
+        obj1.rotation.z = controls.ROTATIONZ/45 * Math.PI/4;
+      }
+      this.Rotation3 = function(){
+        obj2.rotation.y = controls.ROTATIONYY/180 * Math.PI;
+      }
+      this.Rotation4 = function(){
+        obj3.rotation.z = controls.ROTATIONZZ/120 * 2 *  Math.PI/3;
+      }
+      this.plier = function(){
+        plier.position.z = controls.LOCK*1.9;
+        plier2.position.z = -controls.LOCK*1.9;
+      }
+      }
+
+		
+      var gui = new dat.GUI();
+      var f1 = gui.addFolder('Position');
+      f1.add(controls,'TRASLATIONX',-25,25).onChange(controls.Traslation);
+      f1.add(controls,'TRASLATIONZ',-25,25).onChange(controls.Traslation);
+      var f2 = gui.addFolder('Rotation');
+      f2.add(controls,'ROTATIONY',-180,180).onChange(controls.Rotation);
+      f2.add(controls,'ROTATIONZ',-45,45).onChange(controls.Rotation2);
+      f2.add(controls,'ROTATIONYY',-180,180).onChange(controls.Rotation3);
+      f2.add(controls,'ROTATIONZZ',-120,120).onChange(controls.Rotation4);
+      var f3 = gui.addFolder('Lock')
+      f3.add(controls,'LOCK',0,1).step(1).onChange(controls.plier);
+
+      render();
+
+      
+
+      function render() {
+        stats.update();
+          trackballControls.update();
+
+       
+
+        // render using requestAnimationFrame
+        requestAnimationFrame(render);
+        webGLRenderer.render(scene, camera);
+      }
+
+      function initStats() {
+        var stats = new Stats();
+        stats.setMode(0); // 0: fps, 1: ms
+        $('body').append(stats.domElement);
+        return stats;
+      }
+    });
+  </script>  
+ </body>
+</html>
