@@ -48,21 +48,21 @@ THREE.PointerLockControls = function ( camera ) {
     switch ( event.keyCode ) {
 
       case 38: // up
-      case 87: // w
+      //case 87: // w
         moveForward = true;
         break;
 
       case 37: // left
-      case 65: // a
+      //case 65: // a
         moveLeft = true; break;
 
       case 40: // down
-      case 83: // s
+      //case 83: // s
         moveBackward = true;
         break;
 
       case 39: // right
-      case 68: // d
+      //case 68: // d
         moveRight = true;
         break;
 

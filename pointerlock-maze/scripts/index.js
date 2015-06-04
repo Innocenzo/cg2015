@@ -2,8 +2,19 @@ var camera, scene, renderer;
 var geometry, material, mesh;
 var light;
 var controls;
+var collidableMeshList = [];
+var keyboard = new THREEx.KeyboardState();
+var clock = new THREE.Clock();
+var flags = [];
+var keys=[];
+flags[0]=true;
+flags[1]=true;
+flags[2]=true;
+flags[3]=true;
+
 
 function init() {
+
 
   scene = new THREE.Scene();
   scene.fog = new THREE.Fog(0xffffff, 0, 750);
@@ -20,7 +31,13 @@ function init() {
 
   createScene();
   //createMaze(10,0,0xffffff);
-  display(maze(8,8)); 
+  display(maze(6,6)); 
+  var cubeGeometry = new THREE.CubeGeometry(10,20,10,1,1,1);
+  var wireMaterial = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
+  MovingCube = new THREE.Mesh( cubeGeometry, wireMaterial );
+  MovingCube.position.set(0, 10, 0);
+  //MovingCube.rotation.y = -Math.PI/4;
+  scene.add( MovingCube );
 
   animate();
 }
@@ -48,6 +65,7 @@ function createMaze(x,z,color){
   var CubeMaterial = new THREE.MeshLambertMaterial({color: color});
   var geometry = new THREE.BoxGeometry( 10, 30, 30  );
   var cube = new THREE.Mesh( geometry, CubeMaterial );
+  collidableMeshList.push(cube);
   obj1.add(cube);  
   cube.position.y += 15;
   cube.position.x = x;
@@ -156,7 +174,110 @@ function display(m) {
    z+=30;
    }
 }
+function update()
+{
+  //var delta = clock.getDelta(); // seconds.
+  var moveDistance = 1; 
+  //var rotateAngle = Math.PI / 2 * delta;   // pi/2 radians (90 degrees) per second    
+  
+  //if ( keyboard.pressed("D") )
+    //MovingCube.rotation.y -= rotateAngle;
+      
+  if ( keyboard.pressed("a") && flags[0] ){
+    keys[0]="a";
+    keys[1]="";
+    keys[2]="";
+    keys[3]="";    
+    flags[0]=true;
+    flags[1]=true;
+    flags[2]=true;
+    flags[3]=true;
+    MovingCube.position.x -= moveDistance;}
+  if ( keyboard.pressed("s") && flags[1] ){
+    keys[0]="";
+    keys[1]="s";
+    keys[2]="";
+    keys[3]="";    
+    flags[0]=true;
+    flags[1]=true;
+    flags[2]=true;
+    flags[3]=true;
+    MovingCube.position.x += moveDistance;}
+  if ( keyboard.pressed("w") && flags[2] ){
+    keys[0]="";
+    keys[1]="";
+    keys[2]="w";
+    keys[3]="";    
+    flags[0]=true;
+    flags[1]=true;
+    flags[2]=true;
+    flags[3]=true;
+    MovingCube.position.z -= moveDistance;}
+  if ( keyboard.pressed("z") && flags[3] ){
+    keys[0]="";
+    keys[1]="";
+    keys[2]="";
+    keys[3]="z";    
+    flags[0]=true;
+    flags[1]=true;
+    flags[2]=true;
+    flags[3]=true;
+    MovingCube.position.z += moveDistance;}
+    console.log(flags);
 
+        
+  // collision detection:
+  //   determines if any of the rays from the cube's origin to each vertex
+  //    intersects any face of a mesh in the array of target meshes
+  //   for increased collision accuracy, add more vertices to the cube;
+  //    for example, new THREE.CubeGeometry( 64, 64, 64, 8, 8, 8, wireMaterial )
+  //   HOWEVER: when the origin of the ray is within the target mesh, collisions do not occur
+  var originPoint = MovingCube.position.clone();
+
+  
+  
+  for (var vertexIndex = 0; vertexIndex < MovingCube.geometry.vertices.length; vertexIndex++)
+  {   
+    var localVertex = MovingCube.geometry.vertices[vertexIndex].clone();
+    var globalVertex = localVertex.applyMatrix4( MovingCube.matrix );
+    var directionVector = globalVertex.sub( MovingCube.position );
+    
+    var ray = new THREE.Raycaster( originPoint, directionVector.clone().normalize() );
+    var collisionResults = ray.intersectObjects( collidableMeshList );
+    if ( collisionResults.length > 0 && collisionResults[0].distance <= directionVector.length() ){
+          console.log("hit");
+          if ( keys[0]=="a" ){
+            flags[0]=false;
+            flags[1]=true;
+            flags[2]=false;
+            flags[3]=false;
+            c;
+            }
+          if ( keys[1]=="s" ){
+            flags[0]=true;
+            flags[1]=false;
+            flags[2]=false;
+            flags[3]=false;
+            }
+          if ( keys[2]=="w" ){
+            flags[0]=false;
+            flags[1]=false;
+            flags[2]=false;
+            flags[3]=true;
+            }
+          if ( keys[3]=="z" ){
+            flags[0]=false;
+            flags[1]=false;
+            flags[2]=true;
+            flags[3]=false;
+            }
+            } 
+      
+  } 
+
+  controls.update();
+  //stats.update();
+}
 
 function onWindowResize () {
   camera.aspect = window.innerWidth / window.innerHeight;
@@ -168,6 +289,7 @@ function animate () {
   requestAnimationFrame(animate);
   controls.update();
   renderer.render(scene, camera);
+  update();
 }
 
 init();
