@@ -1,0 +1,63 @@
+% Hospital
+% Innocenzo Biondo
+% June 18, 2015
+
+# Hospital
+
+## Administration Suite
+
+- The Department of Plastic Surgery Administration Suite
+
+![Department-of-Plastic-Surgery-Administration-Suite](images/Department-of-Plastic-Surgery-Administration-Suite.jpg )
+
+------------------
+
+Situato a Bellevue dal 2009, l'Administration Suite occupa un'ala dello storico "A Building" al Bellevue Hospital. Composta da uffici centrali per il presidente e Amministratori del Dipartimento, così come per il Capo Servizio e chirurghi con il loro personale di supporto, forniscono una posizione centrale per tutte le funzioni amministrative del Dipartimento. C'è anche una sala conferenze multimediale.
+
+- Hospital Administration Suite (Rush Copley Medical Center)
+
+![Board Room](images/RBI Offc RC Board Rm09.jpg)
+
+------------------
+
+-- Sala consiglio con monitor/TV 80"
+
+-- Sala conferenze
+
+-- Ufficio esecutivo
+
+-- CEO office suite
+
+## Medical Library and Record
+- The Royal College of Physicians and Surgeons of Glasgow
+
+![Medical Library](images/medicallibrary2.jpg)
+
+------------------
+
+
+
+## Meeting Rooms
+
+![seminar room and meeting room](images/room.jpg)
+
+------------------
+
+
+## Data Center and server Room
+
+![server room and data center](images/serverroomdatacentre.jpg)
+
+------------------
+
+Bibliografia
+
+[www.med.nyu.edu](https://www.med.nyu.edu/plastic-surgery/about-us/our-facilities/department-plastic-surgery-administration-suite)
+
+[www.ruddybrothers.com](http://www.ruddybrothers.com/Pages/Construction-Healthcare-Administrative_Areas.aspx)
+
+[www.communitywalk.com](http://www.communitywalk.com/location/sarah_bush_lincoln_health_center_medical_library/info/3224604)
+
+[www.facilities.med.ubc.ca](http://facilities.med.ubc.ca/2012/02/29/fort-st-john-hospital/)
+
+[www.careinfosol.com](http://careinfosol.com/data-centers-solutions/)
