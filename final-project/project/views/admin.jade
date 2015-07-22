@@ -1,0 +1,68 @@
+extends main
+
+block additional_scripts
+	// additional scripts for admin interface
+	script.
+		// init socket
+		var socket = io('/admins');
+		var mapUsersConnected;
+		// init for 2D
+		if (#{enable_2D}) {
+			var userIcon =  L.AwesomeMarkers.icon( data.config.style['user'] );
+		}
+		
+		socket.on('updateMapUsersConnected', function(usersConnected) {
+			mapUsersConnected = usersConnected;
+			// update 2D
+			if (#{enable_2D}) {
+				// clear all markers
+				for(id in data.index) {
+					if(data.index[id].properties.class === 'level') {
+						data.index[id].layer2D.userMarkers.clearLayers();
+					}
+				}
+				
+				// put new markers
+				for(userToUpdate in usersConnected) {
+					var user = usersConnected[userToUpdate];
+					var latLng = c3dclient.coordinatesUtilities.fromGeneralTo2D(user.position, data.config.transformationMatrix);
+					var marker = L.marker(latLng, { icon: userIcon });
+					marker.bindPopup("<b>User: </b>" + user.id +'<br><b>[' + latLng.lat + '; ' + latLng.lng + ']</b>');
+					marker.addTo(data.index[user.position.levelId].layer2D.userMarkers);
+				}
+			}
+			
+			// update 3D
+			if (#{enable_3D}) {
+				// clear all models
+				for(id in data.index) {
+					if(data.index[id].properties.class === 'level') {
+						data.index[id].obj3D.remove(data.index[id].obj3D.userModels);
+						data.index[id].obj3D.userModels = new THREE.Object3D();
+						data.index[id].obj3D.add(data.index[id].obj3D.userModels);
+					}
+				}
+				// put new models
+				for(userToUpdate in usersConnected) { 
+					var user = usersConnected[userToUpdate];
+					var model = c3dclient.generator3D['cube']('0xFF0000');
+					data.index[user.position.levelId].obj3D.userModels.add(model);
+					model.position = c3dclient.coordinatesUtilities.fromGeneralTo3D(user.position);
+					if ((user.position.levelId === data.actualPosition.levelId) || (data.actualPosition.levelId === 'building')) {
+						c3dclient.utilities.setVisibility(model, true);
+					} else {
+						c3dclient.utilities.setVisibility(model, false);
+					}
+				}
+			}
+		});
+		
+		// level change
+		c3dclient.eventEmitter.on('selectFeature', function changeAdminLevel(idObject) {
+			if((data.index[idObject].properties.class === 'level') || (data.index[idObject].properties.class === 'building')) {
+				// update the general position
+				data.actualPosition.levelId = idObject;
+			}
+		});
+
+		

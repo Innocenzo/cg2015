@@ -1,0 +1,43 @@
+{
+    "id": "furnitures",
+    "type": "FeatureCollection",
+    "features": 
+    [
+    	{
+            "id": "chair",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "cucina",
+                "class": "chair",
+                "tVector": [1, 1, 0],
+                "rVector": [0, 0, 90]
+            }
+        },
+        {
+            "id": "table",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [3, 0], [3, 1], [0, 1]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "camera_1",
+                "class": "table",
+                "height": 0.8,
+                "tVector": [4, 1, 0],
+                "rVector": [0, 0, 90]
+            }
+        }
+
+    ]
+}

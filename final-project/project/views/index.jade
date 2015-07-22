@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	.container-fluid
+		.page-header
+			h1= title
+		.row
+			.col-md-3.col-md-offset-2
+				a.btn.btn-default.btn-block(href='/admin') Supervisor Interface
+			.col-md-3.col-md-offset-2
+				a.btn.btn-default.btn-block(href='/user') Explorer Interface
+		include ./includes/footer.jade

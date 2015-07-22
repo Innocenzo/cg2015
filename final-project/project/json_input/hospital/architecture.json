@@ -1,0 +1,1806 @@
+{
+    "id": "architectures",
+    "type": "FeatureCollection",
+    "features": 
+    [
+        {
+            "type": "Feature",
+            "id": "level_0",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": 
+                [ 
+                    [ [0, 0], [82.6, 0], [82.6, 117.6], [0, 117.6] ]
+                ]  
+            },
+            "properties": 
+            {
+                "class": "level",
+                "parent": "building",
+                "description": "mappa 2d ospedale",
+                "height": 3.5,
+                "thickness": 0.3,
+                "tVector": [0, 0, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+              "type": "Feature",
+              "id": "suite11",
+              "geometry": 
+              {
+                    "type": "Polygon",
+                    "coordinates": 
+                    [ 
+                       [ [0, 0], [24.5, 0], [24.5, 16.8], [0, 16.8] ]
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "room",
+                    "parent": "level_0",
+                    "description": "suite11",
+                    "tVector": [58.1, 50.4, 0],
+                    "rVector": [0, 0, 0]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_suite11_south",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [24.5, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall suite11-easterno",
+                    "tVector": [58.1, 50.4, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_suite11_north",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [24.5, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall suite11-easterno",
+                    "tVector": [58.1, 67.2, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_suite11_weast",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [16.8, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall suite11_weast",
+                    "tVector": [58.1, 50.4, 0],
+                    "rVector": [0, 0, 90],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_suite11_east",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [16.8, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall suite11_east",
+                    "tVector": [82.6, 50.4, 0],
+                    "rVector": [0, 0, 90],
+                    "connections": ["suite11"]
+              }
+        },        
+        {
+              "type": "Feature",
+              "id": "door_Suite11",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [1, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "door",
+                    "parent": "wall_suite11_south",
+                    "thickness": 5,
+                    "description": "Porta ingresso",
+                    "tVector": [23, 0, 0],
+                    "rVector": [0, 0, 0]
+              }
+        },            
+        {
+              "type": "Feature",
+              "id": "door2_Suite11",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [1, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "door",
+                    "parent": "wall_suite11_north",
+                    "thickness": 5,
+                    "description": "Porta ingresso",
+                    "tVector": [23, 0, 0],
+                    "rVector": [0, 0, 0]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "window_Suite11",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [2.5, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "window",
+                    "parent": "wall_suite11_east",
+                    "height": 1.5,
+                    "description": "fineastra",
+                    "tVector": [5.4, 0, 1],
+                    "rVector": [0, 0, 0]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "window2_Suite11",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [2.5, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "window",
+                    "parent": "wall_suite11_east",
+                    "height": 1.5,
+                    "description": "fineastra",
+                    "tVector": [9, 0, 1],
+                    "rVector": [0, 0, 0]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "suite21",
+              "geometry": 
+              {
+                    "type": "Polygon",
+                    "coordinates": 
+                    [ 
+                       [ [0, 0], [0, 12.18], [8.925, 12.18], [8.925, 0.84], [1.425,0.84],[1.425,0], [0, 0] ]
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "room",
+                    "parent": "level_0",
+                    "description": "suite21",
+                    "tVector": [73.675, 70.56, 0],
+                    "rVector": [0, 0, 0]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_suite21_south_small",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [1.425, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall suite21-easterno",
+                    "tVector": [73.675, 70.56, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite21"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_suite21_east_small",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.84, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall suite21-easterno",
+                    "tVector": [75.1, 70.56, 0],
+                    "rVector": [0, 0, 90],
+                    "connections": ["suite21"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_suite21_east_hallway",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [4.2, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall suite21_east_hallway",
+                    "tVector": [75.1, 71.4, 0],
+                    "rVector": [0, 0, 90],
+                    "connections": ["suite21"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "door_suite21_south_small",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [1, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "door",
+                    "parent": "wall_suite21_east_hallway",
+                    "thickness": 5,
+                    "description": "Porta ingresso",
+                    "tVector": [0.5, 0, 0],
+                    "rVector": [0, 0, 0]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_suite21_center",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [8.925, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall suite21-center",
+                    "tVector": [73.675, 75.6, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite21"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "door_suite21_center",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [1, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "door",
+                    "parent": "wall_suite21_center",
+                    "thickness": 5,
+                    "description": "Porta ingresso",
+                    "tVector": [0.215, 0, 0],
+                    "rVector": [0, 0, 0]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_suite21_south",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [7.5, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall suite21-easterno",
+                    "tVector": [75.1, 71.4, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite21"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_suite21_east",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [11.34, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall suite21-easterno",
+                    "tVector": [82.6, 71.4, 0],
+                    "rVector": [0, 0, 90],
+                    "connections": ["suite21"]
+              }
+        },        
+        {
+              "type": "Feature",
+              "id": "window_Suite21",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [1.5, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "window",
+                    "parent": "wall_suite21_east",
+                    "height": 1.5,
+                    "description": "fineastra",
+                    "tVector": [1.21, 0, 1],
+                    "rVector": [0, 0, 0]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "window_Suite21",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [2.5, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "window",
+                    "parent": "wall_suite21_east",
+                    "height": 1.5,
+                    "description": "fineastra",
+                    "tVector": [6.21, 0, 1],
+                    "rVector": [0, 0, 0]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_suite21_north",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [8.925, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall suite21-easterno",
+                    "tVector": [73.675, 82.74, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite21"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "door_suite21_south_small",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [1, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "door",
+                    "parent": "wall_suite21_south_small",
+                    "thickness": 5,
+                    "description": "Porta ingresso",
+                    "tVector": [0.215, 0, 0],
+                    "rVector": [0, 0, 0]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "medicalRecord",
+              "geometry": 
+              {
+                    "type": "Polygon",
+                    "coordinates": 
+                    [ 
+                       [ [0, 0], [0, 21.82], [8.075, 21.82], [8.075, 0], [0, 0] ]
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "room",
+                    "parent": "level_0",
+                    "description": "medicalRecord",
+                    "tVector": [65.6, 70.56, 0],
+                    "rVector": [0, 0, 0]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_medicalRecord_south",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [8.075, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall serverRoom-south",
+                    "tVector": [65.6, 70.56, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["medicalRecord"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_medicalRecord_weast",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [21.82, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall medicalRecord_weast",
+                    "tVector": [65.6, 70.56, 0],
+                    "rVector": [0, 0, 90],
+                    "connections": ["medicalRecord"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_medicalRecord_east",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [21.82, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall medicalRecord_east",
+                    "tVector": [73.675, 70.56, 0],
+                    "rVector": [0, 0, 90],
+                    "connections": ["medicalRecord"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_medicalRecord_east",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [8.075, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall medicalRecord-Suite21",
+                    "tVector": [65.6, 92.38, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["medicalRecord","suite21"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "door_medicalRecord",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [1, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "door",
+                    "parent": "wall_medicalRecord_south",
+                    "thickness": 5,
+                    "description": "Porta ingresso",
+                    "tVector": [0.5, 0, 0],
+                    "rVector": [0, 0, 0]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "door_medicalRecord2",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [1, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "door",
+                    "parent": "wall_medicalRecord_weast",
+                    "thickness": 5,
+                    "description": "Porta ingresso",
+                    "tVector": [10, 0, 0],
+                    "rVector": [0, 0, 0]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "serverRoom",
+              "geometry": 
+              {
+                    "type": "Polygon",
+                    "coordinates": 
+                    [ 
+                       [ [0, 0], [0, 5.04], [2.25, 5.04], [2.25, 0], [0, 0] ]
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "room",
+                    "parent": "level_0",
+                    "description": "serverRoom",
+                    "tVector": [61.475, 70.56, 0],
+                    "rVector": [0, 0, 0]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_serverRoom_south",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [2.25, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall serverRoom-easterno",
+                    "tVector": [61.475, 70.56, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["serverRoom"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_serverRoom_north",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [2.25, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall serverRoom-easterno",
+                    "tVector": [61.475, 73.92, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["serverRoom"]
+              }
+        },        
+        {
+              "type": "Feature",
+              "id": "wall_serverRoom_east",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [3.36, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "internal_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall wall_serverRoom_east",
+                    "tVector": [63.725, 70.56, 0],
+                    "rVector": [0, 0, 90],
+                    "connections": ["serverRoom"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_serverRoom_north_Vertical",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [1.68, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "internal_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall wall_serverRoom_north_Vertical",
+                    "tVector": [61.475, 73.92, 0],
+                    "rVector": [0, 0, 90],
+                    "connections": ["serverRoom"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "door_serverRoom",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [1, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "door",
+                    "parent": "wall_serverRoom_north_Vertical",
+                    "thickness": 5,
+                    "description": "Entry door",
+                    "tVector": [0.21, 0, 0],
+                    "rVector": [0, 0, 0]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "dataCenter",
+              "geometry": 
+              {
+                    "type": "Polygon",
+                    "coordinates": 
+                    [ 
+                       [ [0, 0], [0, 5.04], [3.375, 5.04], [3.375, 0], [0, 0] ]
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "room",
+                    "parent": "level_0",
+                    "description": "dataCenter",
+                    "tVector": [58.1, 70.56, 0],
+                    "rVector": [0, 0, 0]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_dataCenter_south",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [3.375, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall dataCenter-easterno",
+                    "tVector": [58.1, 70.56, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["dataCenter"]
+              }
+        },        
+        {
+              "type": "Feature",
+              "id": "wall_dataCenter_weast",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [5.02, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall serverRoom-meetingRoom",
+                    "tVector": [58.1, 70.56, 0],
+                    "rVector": [0, 0, 90],
+                    "connections": ["serverRoom","meetingRoom"]
+              }
+        },            
+        {
+              "type": "Feature",
+              "id": "medicalLibrary",
+              "geometry": 
+              {
+                    "type": "Polygon",
+                    "coordinates": 
+                    [ 
+                       [ [0, 0], [0, 5.88], [8.145, 5.88], [8.145, 0]]
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "room",
+                    "parent": "level_0",
+                    "description": "medicalLibrary",
+                    "tVector": [55.58, 75.6, 0],
+                    "rVector": [0, 0, 0]
+              }
+        },    
+        {
+              "type": "Feature",
+              "id": "wall_medicalLibrary_south",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [8.145, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall_meetingRoom_south_medicalLibrary_hallway",
+                    "tVector": [55.58, 75.6, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["meetingRoom","medicalLibrary"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_medicalLibrary_east",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [5.88, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall_medicalLibrary_east",
+                    "tVector": [63.725, 75.6, 0],
+                    "rVector": [0, 0, 90],
+                    "connections": ["medicalLibrary","hallway"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_medicalLibrary_weast",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [5.88, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall_medicalLibrary_weast",
+                    "tVector": [55.58, 75.6, 0],
+                    "rVector": [0, 0, 90],
+                    "connections": ["medicalLibrary"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_medicalLibrary_north",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [8.145, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall_medicalLibrary_north",
+                    "tVector": [55.58, 81.48, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["medicalLibrary"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "door_medicalLibrary",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [1, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "door",
+                    "parent": "wall_medicalLibrary_east",
+                    "thickness": 5,
+                    "description": "Entry door",
+                    "tVector": [0.5, 0, 0],
+                    "rVector": [0, 0, 0]
+              }
+        }, 
+        {
+              "type": "Feature",
+              "id": "meetingRoom",
+              "geometry": 
+              {
+                    "type": "Polygon",
+                    "coordinates": 
+                    [ 
+                       [ [0, 0], [0, 5.04], [8.4,5.04], [8.4,0], [0,0] ]
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "room",
+                    "parent": "level_0",
+                    "description": "meetingRoom",
+                    "tVector": [49.7, 70.56, 0],
+                    "rVector": [0, 0, 0]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_meetingRoom_north",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [8.4, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall_meetingRoom_medicalLibrary",
+                    "tVector": [49.7, 75.6, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["meetingRoom","medicalLibrary"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "wall_meetingRoom_weast",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [5.04, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall_meetingRoom_weast",
+                    "tVector": [49.7, 70.56, 0],
+                    "rVector": [0, 0, 90],
+                    "connections": ["meetingRoom"]
+              }
+        }, 
+        {
+              "type": "Feature",
+              "id": "wall_meetingRoom_south",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [8.4, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "wall_meetingRoom_east",
+                    "tVector": [49.7, 70.56, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["meetingRoom","hallway"]
+              }
+        },       
+        {
+              "type": "Feature",
+              "id": "door_meetingRoom",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [1, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "door",
+                    "parent": "wall_meetingRoom_south",
+                    "thickness": 5,
+                    "description": "Entry door",
+                    "tVector": [0.5, 0, 0],
+                    "rVector": [0, 0, 0]
+              }
+        },        
+        {
+              "type": "Feature",
+              "id": "hallway",
+              "geometry": 
+              {
+                    "type": "Polygon",
+                    "coordinates": 
+                    [ 
+                       [ [0, 0], [0, 3.36], [14.025, 3.36], [14.025, 14.28], [15.9, 14.28], [15.9, 3.36], [25.4, 3.36], [25.4, 4.2], [25.4, 4.2], [32.9, 4.2], [32.9, 0], [0, 0] ]
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "room",
+                    "parent": "level_0",
+                    "description": "hallway",
+                    "tVector": [49.7, 67.2, 0],
+                    "rVector": [0, 0, 0]
+              }
+        },        
+       
+
+        {
+              "type": "Feature",
+              "id": "pillar_N12-9",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N12-9",
+                    "tVector": [82.6, 50.4, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N11-9",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N11-9",
+                    "tVector": [75.1, 50.4, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N10-9",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N10-9",
+                    "tVector": [65.6, 50.4, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillarN9-9",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N9-9",
+                    "tVector": [58.1, 50.4, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+
+
+        {
+              "type": "Feature",
+              "id": "pillar_N12-8",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N12-8",
+                    "tVector": [82.6, 58.8, 0],
+                    "rVector": [0, 0, 90],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N11-8",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N11-8",
+                    "tVector": [75.1, 58.8, 0],
+                    "rVector": [0, 0, 90],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N10-8",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N10-8",
+                    "tVector": [65.6, 58.8, 0],
+                    "rVector": [0, 0, 90],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N9-8",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N9-8",
+                    "tVector": [58.1, 58.8, 0],
+                    "rVector": [0, 0, 90],
+                    "connections": ["suite11"]
+              }
+        },
+
+
+        {
+              "type": "Feature",
+              "id": "pillar_N12-7",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N12-7",
+                    "tVector": [82.6, 67.2, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N11-7",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N11-7",
+                    "tVector": [75.1, 67.2, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N10-7",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N10-7",
+                    "tVector": [65.6, 67.2, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N9-7",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N9-7",
+                    "tVector": [58.1, 67.2, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N8-7",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N8-7",
+                    "tVector": [49.7, 67.2, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+
+
+        {
+              "type": "Feature",
+              "id": "pillar_N12-6",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N12-6",
+                    "tVector": [82.6, 75.6, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N11-6",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N11-6",
+                    "tVector": [75.1, 75.6, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N10-6",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N10-6",
+                    "tVector": [65.6, 75.6, 0],
+                    "rVector": [0, 0, 90],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N9-6",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N9-6",
+                    "tVector": [58.1, 75.6, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N8-6",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N8-6",
+                    "tVector": [49.7, 75.6, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+
+
+        {
+              "type": "Feature",
+              "id": "pillar_N12-5",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N12-5",
+                    "tVector": [82.6, 84, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N11-5",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N11-5",
+                    "tVector": [75.1, 84, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N10-5",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N10-5",
+                    "tVector": [65.6, 84, 0],
+                    "rVector": [0, 0, 90],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N9-5",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N9-5",
+                    "tVector": [58.1, 84, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N8-5",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N8-5",
+                    "tVector": [49.7, 84, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+
+
+
+        {
+              "type": "Feature",
+              "id": "pillar_N12-4",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N12-4",
+                    "tVector": [82.6, 92.4, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N11-4",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N11-4",
+                    "tVector": [75.1, 92.4, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N10-4",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N10-4",
+                    "tVector": [65.6, 92.4, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N9-4",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N9-4",
+                    "tVector": [58.1, 92.4, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        },
+        {
+              "type": "Feature",
+              "id": "pillar_N8-4",
+              "geometry": 
+              {
+                    "type": "LineString",
+                    "coordinates": 
+                    [ 
+                       [0, 0], [0.42, 0] 
+                    ]  
+                  
+              },
+              "properties": 
+              {
+                    "class": "external_wall",
+                    "parent": "level_0",
+                    "thickness": 0.42,
+                    "description": "pillar N8-4",
+                    "tVector": [49.7, 92.4, 0],
+                    "rVector": [0, 0, 0],
+                    "connections": ["suite11"]
+              }
+        }
+    ]
+}

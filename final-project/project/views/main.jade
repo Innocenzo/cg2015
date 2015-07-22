@@ -1,0 +1,193 @@
+extends layout
+
+block head
+
+	if enable_2D
+		include ./includes/css_2d.jade
+	if enable_3D
+		include ./includes/css_3d.jade
+
+block content
+	// GUI
+	.container-fluid
+		.page-header
+			h1= title
+
+		.row
+			if (enable_2D && enable_3D)	
+				.col-md-6
+					h3 2D
+					#container2D 
+				.col-md-6
+					h3 3D
+						button.btn.btn-info.btn-xs.pull-right#startFPV Start FPV
+					#container3D
+						#pointer
+						#plerror
+			else if (enable_2D && !enable_3D)	
+				.col-md-8.col-md-offset-2
+					h3 2D
+					#container2D 	
+			else if (!enable_2D && enable_3D)
+				.col-md-8.col-md-offset-2
+					h3 3D
+						button.btn.btn-info.btn-xs.pull-right#startFPV Start FPV
+					#container3D
+						#pointer
+						#plerror
+
+		hr
+		
+		.row
+			.col-md-4
+				h3 Navigator
+				#navigator
+			.col-md-4
+				h3 Feature Information
+				#info
+			.col-md-4
+				h3 Get directions
+				select.form-control#directionsFrom
+				select.form-control#directionsTo
+				button.btn.btn-default#getDirections Get Directions
+		include ./includes/footer.jade
+
+
+	// SCRIPTS
+	
+	if enable_2D
+		include ./includes/js_libraries_2d.jade
+	if enable_3D
+		include ./includes/js_libraries_3d.jade
+	
+	script var data = JSON.parse('!{data}');
+	
+	script(src='/libs/bundle.js')
+	script(src='/assets/js/react.js')
+	script(src='/socket.io/socket.io.js')
+	
+	if enable_2D
+		script.
+			c3dclient.renderer2D.init(data);
+			c3dclient.renderer2D.generate2DModel(data);
+			
+	if enable_3D 
+		script.
+			c3dclient.renderer3D.init(data);
+			c3dclient.renderer3D.generate3DModel(data);
+	
+	// start FPV Button logic
+	script.
+		$( "#startFPV" ).on('click', function() {
+			c3dclient.eventEmitter.emit('startFPV');
+		});
+	
+	// navigator logic
+	script.
+		var menuArray = [];
+		var notShowThisFeatures = ['internal_wall', 'external_wall'];
+		var indexSelectElement = 0;
+		var selectElement = document.createElement('select');
+		selectElement.indexValue = indexSelectElement;
+		selectElement.className = 'form-control';
+	
+		menuArray.push(selectElement);
+		
+		$("#navigator").append(selectElement);
+		
+		var optionElement = document.createElement('option');
+		optionElement.value = 'building';
+		optionElement.innerHTML = 'building';
+		selectElement.appendChild(optionElement);
+	
+		for(id in data.tree.children) {
+			var optionElement = document.createElement('option');
+			optionElement.value = data.tree.children[id].id;
+			optionElement.innerHTML = data.tree.children[id].id;
+			selectElement.appendChild(optionElement);
+		}
+	
+		selectElement.addEventListener('change', function()  {
+			generateSelectOption(selectElement);
+		});
+	
+		function generateSelectOption(selectElement) {
+			//1. get dell'id del select selezionato e del rispettivo valore
+			var idSelect = selectElement.indexValue;
+			var idObject = selectElement.value;
+			//2. emit evento della selezione avvenuta per la visualizzazione 
+			c3dclient.eventEmitter.emit('selectFeature', idObject);
+			
+			//3. Rimozione select successivi
+			for (var i = (idSelect + 1); i < menuArray.length; i++) {
+				menuArray[i].remove();
+			};
+	
+			//4. Riduzione array
+			var removed = menuArray.splice(idSelect+1, menuArray.length-idSelect-1);
+	
+			//5. Inserimento nuovo select
+			if(idSelect < menuArray.length)
+				indexSelectElement = idSelect + 1;
+			else
+				indexSelectElement = (menuArray.length);
+	
+			if(data.index[idObject].children.length > 0) {
+				var newSelectElement = document.createElement('select');
+				newSelectElement.indexValue = indexSelectElement;
+				newSelectElement.className = 'form-control';
+				for(id in data.index[idObject].children) {
+					if(!(notShowThisFeatures.indexOf(data.index[idObject].children[id].properties.class)> -1)){
+						var optionElement = document.createElement('option');
+						optionElement.value = data.index[idObject].children[id].id;
+						optionElement.innerHTML = data.index[idObject].children[id].id;
+						newSelectElement.appendChild(optionElement);
+					}
+				}
+				$("#navigator").append(newSelectElement);
+				menuArray.push(newSelectElement);
+				//6. Aggiunta eventListener
+				newSelectElement.addEventListener('change', function()  {
+					generateSelectOption(newSelectElement);
+				});
+			}
+		}
+	
+	// show feature info logic
+	script.
+		c3dclient.eventEmitter.on('showFeatureInfo', function renderReact(idObject){
+			var feature = data.index[idObject];
+			React.render(
+						React.createElement( feature.getInfo() ), 
+						document.getElementById('info') 
+					);
+		});
+		c3dclient.eventEmitter.on('selectFeature', function emitShowFeatureInfo(idObject) {
+			if (data.index[idObject].properties.class !== 'building') {
+				c3dclient.eventEmitter.emit('showFeatureInfo',idObject);
+			}
+		});	
+	// get directions logic			  
+	script.
+		var fromSelect = document.getElementById('directionsFrom');
+		var toSelect = document.getElementById('directionsTo');
+		for(id in data.graph) {
+			var optionElement = document.createElement('option');
+			optionElement.value = id;
+			optionElement.innerHTML = id;
+			fromSelect.appendChild(optionElement);
+			var clonedElement = optionElement.cloneNode(true);
+			toSelect.appendChild(clonedElement);
+		}
+		document.getElementById('getDirections').addEventListener('click', function()  {
+			var fromValue = fromSelect.value;
+			var toValue = toSelect.value;
+			var directionInfo = {
+				fromNodeId: fromValue,
+				toNodeId: toValue
+			}
+			c3dclient.eventEmitter.emit('getDirections', directionInfo);
+		});
+
+	// additional scripts (user/admin)
+	block additional_scripts

@@ -1,0 +1,2289 @@
+{
+    "id": "furnitures",
+    "type": "FeatureCollection",
+    "features": 
+    [
+    	       
+        {
+            "id": "server",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 1], [0, 1]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "serverRoom",
+                "class": "server",
+                "height": 2,
+                "tVector": [0.96, 1.67, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "server2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 1], [0, 1]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "serverRoom",
+                "class": "server",
+                "height": 2,
+                "tVector": [0.96, 0.58, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "router",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 0.3], [0, 0.3]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "dataCenter",
+                "class": "router",                
+                "tVector": [2.375, 0.3, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "coolingSistem",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "dataCenter",
+                "class": "coolingSistem",                
+                "tVector": [0.21, 1.21, 1.5],
+                "rVector": [90, 0, 180]
+            }
+        },
+         {
+            "id": "desk1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [3.5, 0], [3.5, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "desk",
+                "height": 1,
+                "tVector": [0.42 , 6.9, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "drawers1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "drawers",
+                "height": 1,
+                "plane": 0.75,
+                "tVector": [ 2.92, 5.4, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairDesk1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "chair",
+                "height": 1,                
+                "tVector": [ 1.52, 6.92, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "monitor1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "monitorPc",
+                "height": 1,                
+                "tVector": [ 1.52, 7.62, 1.03],
+                "rVector": [0, 0, -90]
+            }
+        },
+        {
+            "id": "pc1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "torrePc",
+                "height": 1,                
+                "tVector": [ 1.02, 7.62, 1.03],
+                "rVector": [0, 0, -90]
+            }
+        },
+        {
+            "id": "desk2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [3.5, 0], [3.5, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "desk",
+                "height": 1,
+                "tVector": [3.94 , 6.9, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "drawers2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "drawers",
+                "height": 1,
+                "plane": 0.75,
+                "tVector": [ 6.44, 5.4, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairDesk2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "chair",
+                "height": 1,                
+                "tVector": [ 5.02, 6.92, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "monitor2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "monitorPc",
+                "height": 1,                
+                "tVector": [ 5.02, 7.62, 1.03],
+                "rVector": [0, 0, -90]
+            }
+        },
+        {
+            "id": "pc2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "torrePc",
+                "height": 1,                
+                "tVector": [ 4.52, 7.62, 1.03],
+                "rVector": [0, 0, -90]
+            }
+        },
+        {
+            "id": "desk3",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [3.5, 0], [3.5, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "desk",
+                "height": 1,
+                "tVector": [7.46 , 6.9, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "drawers3",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "drawers",
+                "height": 1,
+                "plane": 0.75,
+                "tVector": [9.96, 5.4, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairDesk3",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "chair",
+                "height": 1,                
+                "tVector": [ 8.52, 6.92, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "monitor3",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "monitorPc",
+                "height": 1,                
+                "tVector": [ 8.52, 7.62, 1.03],
+                "rVector": [0, 0, -90]
+            }
+        },
+        {
+            "id": "pc3",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "torrePc",
+                "height": 1,                
+                "tVector": [ 8.02, 7.62, 1.03],
+                "rVector": [0, 0, -90]
+            }
+        },
+        {
+            "id": "desk4",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [3.5, 0], [3.5, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "desk",
+                "height": 1,
+                "tVector": [10.98 , 6.9, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "drawers4",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "drawers",
+                "height": 1,
+                "plane": 0.75,
+                "tVector": [13.48, 5.4, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairDesk4",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "chair",
+                "height": 1,                
+                "tVector": [ 12.02, 6.92, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "monitor4",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "monitorPc",
+                "height": 1,                
+                "tVector": [ 12.02, 7.62, 1.03],
+                "rVector": [0, 0, -90]
+            }
+        },
+        {
+            "id": "pc4",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "torrePc",
+                "height": 1,                
+                "tVector": [ 11.52, 7.62, 1.03],
+                "rVector": [0, 0, -90]
+            }
+        },
+        {
+            "id": "desk5",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [3.5, 0], [3.5, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "desk",
+                "height": 1,
+                "tVector": [14.5 , 6.9, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "drawers5",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "drawers",
+                "height": 1,
+                "plane": 0.75,
+                "tVector": [17, 5.4, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairDesk5",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "chair",
+                "height": 1,                
+                "tVector": [ 15.52, 6.92, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "monitor5",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "monitorPc",
+                "height": 1,                
+                "tVector": [ 15.52, 7.62, 1.03],
+                "rVector": [0, 0, -90]
+            }
+        },
+        {
+            "id": "pc5",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "torrePc",
+                "height": 1,                
+                "tVector": [ 15.02, 7.62, 1.03],
+                "rVector": [0, 0, -90]
+            }
+        },
+        {
+            "id": "desk6",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [3.5, 0], [3.5, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "desk",
+                "height": 1,
+                "tVector": [18.02, 6.9, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "drawers6",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "drawers",
+                "height": 1,
+                "plane": 0.75,
+                "tVector": [20.52, 5.4, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairDesk6",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "chair",
+                "height": 1,                
+                "tVector": [ 19.02, 6.92, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "monitor6",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "monitorPc",
+                "height": 1,                
+                "tVector": [ 19.02, 7.62, 1.03],
+                "rVector": [0, 0, -90]
+            }
+        },
+        {
+            "id": "pc6",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "torrePc",
+                "height": 1,                
+                "tVector": [ 18.52, 7.62, 1.03],
+                "rVector": [0, 0, -90]
+            }
+        },
+         {
+            "id": "deskB1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [3.5, 0], [3.5, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "desk",
+                "height": 1,
+                "tVector": [3.92 , 10.32, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "drawersB1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "drawers",
+                "height": 1,
+                "plane": -0.75,
+                "tVector": [ 2.92, 10.32, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairDeskB1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "chair",
+                "height": 1,                
+                "tVector": [ 1.52, 10.32, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "monitorB1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "monitorPc",
+                "height": 1,                
+                "tVector": [ 1.52, 9.32, 1.03],
+                "rVector": [0, 0, 90]
+            }
+        },
+        {
+            "id": "pcB1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "torrePc",
+                "height": 1,                
+                "tVector": [ 1.02, 9.32, 1.03],
+                "rVector": [0, 0, 90]
+            }
+        },
+         {
+            "id": "deskB2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [3.5, 0], [3.5, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "desk",
+                "height": 1,
+                "tVector": [7.44 , 10.32, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "drawersB2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "drawers",
+                "height": 1,
+                "plane": -0.75,
+                "tVector": [ 6.44, 10.32, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairDeskB2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "chair",
+                "height": 1,                
+                "tVector": [ 5.02, 10.32, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "monitorB2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "monitorPc",
+                "height": 1,                
+                "tVector": [ 5.02, 9.32, 1.03],
+                "rVector": [0, 0, 90]
+            }
+        },
+        {
+            "id": "pcB2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "torrePc",
+                "height": 1,                
+                "tVector": [ 4.52, 9.32, 1.03],
+                "rVector": [0, 0, 90]
+            }
+        },
+         {
+            "id": "deskB3",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [3.5, 0], [3.5, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "desk",
+                "height": 1,
+                "tVector": [10.96 , 10.32, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "drawersB3",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "drawers",
+                "height": 1,
+                "plane": -0.75,
+                "tVector": [ 9.96, 10.32, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairDeskB3",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "chair",
+                "height": 1,                
+                "tVector": [ 8.52, 10.32, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "monitorB3",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "monitorPc",
+                "height": 1,                
+                "tVector": [ 8.52, 9.32, 1.03],
+                "rVector": [0, 0, 90]
+            }
+        },
+        {
+            "id": "pcB3",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "torrePc",
+                "height": 1,                
+                "tVector": [ 8.02, 9.32, 1.03],
+                "rVector": [0, 0, 90]
+            }
+        },
+         {
+            "id": "deskB4",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [3.5, 0], [3.5, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "desk",
+                "height": 1,
+                "tVector": [14.48 , 10.32, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "drawersB4",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "drawers",
+                "height": 1,
+                "plane": -0.75,
+                "tVector": [ 13.48, 10.32, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairDeskB4",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "chair",
+                "height": 1,                
+                "tVector": [ 12.02, 10.32, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "monitorB4",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "monitorPc",
+                "height": 1,                
+                "tVector": [ 12.02, 9.32, 1.03],
+                "rVector": [0, 0, 90]
+            }
+        },
+        {
+            "id": "pcB4",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "torrePc",
+                "height": 1,                
+                "tVector": [ 11.52, 9.32, 1.03],
+                "rVector": [0, 0, 90]
+            }
+        },
+         {
+            "id": "deskB5",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [3.5, 0], [3.5, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "desk",
+                "height": 1,
+                "tVector": [18 , 10.32, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "drawersB5",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "drawers",
+                "height": 1,
+                "plane": -0.75,
+                "tVector": [ 17, 10.32, 0],
+                "rVector": [0, 0, 0]
+            }
+        },        
+         {
+            "id": "deskB5",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [3.5, 0], [3.5, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "desk",
+                "height": 1,
+                "tVector": [21.52, 10.32, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "chairDeskB5",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "chair",
+                "height": 1,                
+                "tVector": [ 15.52, 10.32, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "monitorB5",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "monitorPc",
+                "height": 1,                
+                "tVector": [ 15.52, 9.32, 1.03],
+                "rVector": [0, 0, 90]
+            }
+        },
+        {
+            "id": "pcB5",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "torrePc",
+                "height": 1,                
+                "tVector": [ 15.02, 9.32, 1.03],
+                "rVector": [0, 0, 90]
+            }
+        },
+        {
+            "id": "drawersB6",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "drawers",
+                "height": 1,
+                "plane": -0.75,
+                "tVector": [ 20.52, 10.32, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairDeskB6",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "chair",
+                "height": 1,                
+                "tVector": [ 19.02, 10.32, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "monitorB6",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "monitorPc",
+                "height": 1,                
+                "tVector": [ 19.02, 9.32, 1.03],
+                "rVector": [0, 0, 90]
+            }
+        },
+        {
+            "id": "pcB6",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite11",
+                "class": "torrePc",
+                "height": 1,                
+                "tVector": [ 18.52, 9.32, 1.03],
+                "rVector": [0, 0, 90]
+            }
+        },
+        {
+            "id": "tableWood",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [4, 0], [4, 1.75], [0, 1.75]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "tableMarble",    
+                "texture": "wood-2.jpg",                        
+                "tVector": [ 2.56, 1.91, 0.8],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairLibraryL",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "chair",                           
+                "tVector": [ 2.6, 2.7, 0],
+                "rVector": [0, 0, 270]
+            }
+        },
+        {
+            "id": "chairLibraryL",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "chair",                           
+                "tVector": [ 6.6, 2.7, 0],
+                "rVector": [0, 0, 90]
+            }
+        },
+        {
+            "id": "chairLibrary",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "chair",                           
+                "tVector": [ 3.75, 1.86, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairLibrary2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "chair",                           
+                "tVector": [ 4.35, 1.86, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairLibrary3",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "chair",                           
+                "tVector": [ 4.95, 1.86, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairLibrary4",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties":   
+            {
+                "parent": "medicalLibrary",
+                "class": "chair",                           
+                "tVector": [ 5.55, 3.86, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "chairLibraryB",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "chair",                           
+                "tVector": [ 3.75, 3.86, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "chairLibraryB2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "chair",                           
+                "tVector": [ 4.35, 3.86, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "chairLibraryB3",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "chair",                           
+                "tVector": [ 4.95, 3.86, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "chairLibraryB4",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "chair",                           
+                "tVector": [ 5.55, 1.86, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "library",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 0.6], [0, 0.6]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "library",
+                "height": 1,
+                "texture": "books_texture3015.jpg",
+                "tVector": [ 0.81, 0.21, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "library2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 0.6], [0, 0.6]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "library",
+                "height": 1,
+                "texture": "books_texture3013.jpg",
+                "tVector": [ 2.31, 0.21, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "library3",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 0.6], [0, 0.6]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "library",
+                "height": 1,
+                "texture": "books_texture3014.jpg",
+                "tVector": [ 3.31, 0.21, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "library4",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 0.6], [0, 0.6]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "library",
+                "height": 1,
+                "texture": "books_texture3014.jpg",
+                "tVector": [ 0.21, 1.81, 0],
+                "rVector": [0, 0, 270]
+            }
+        },
+        {
+            "id": "library5",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 0.6], [0, 0.6]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "library",
+                "height": 1,
+                "texture": "books_texture3013.jpg",
+                "tVector": [ 2.31, 5.67, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "library6",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 0.6], [0, 0.6]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "library",
+                "height": 1,
+                "texture": "books_texture3015.jpg",
+                "tVector": [ 3.81, 5.67, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "library7",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 0.6], [0, 0.6]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "library",
+                "height": 1,
+                "texture": "books_texture3014.jpg",
+                "tVector": [ 4.81, 5.67, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "library8",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 0.6], [0, 0.6]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "library",
+                "height": 1,
+                "texture": "books_texture3013.jpg",
+                "tVector": [ 0.21, 2.81, 0],
+                "rVector": [0, 0, 270]
+            }
+        },
+        {
+            "id": "library9",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1, 0], [1, 0.6], [0, 0.6]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "library",
+                "height": 1,
+                "texture": "books_texture3015.jpg",
+                "tVector": [ 0.21, 3.81, 0],
+                "rVector": [0, 0, 270]
+            }
+        },
+        {
+            "id": "library9",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.27, 0], [1.27, 0.6], [0, 0.6]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalLibrary",
+                "class": "library",
+                "height": 1,
+                "texture": "books_texture3014.jpg",
+                "tVector": [ 0.21, 5.08, 0],
+                "rVector": [0, 0, 270]
+            }
+        },
+        {
+            "id": "archivioA1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 1], [0, 1]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalRecord",
+                "class": "records",
+                "height": 1,                
+                "tVector": [ 4, 4.21, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "archivioA2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 1], [0, 1]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalRecord",
+                "class": "records",
+                "height": 1,                
+                "tVector": [ 5.5, 4.21, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "archivioB1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 1], [0, 1]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalRecord",
+                "class": "records",
+                "height": 1,                
+                "tVector": [ 2.5, 4.71, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "archivioB2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 1], [0, 1]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalRecord",
+                "class": "records",
+                "height": 1,                
+                "tVector": [ 4, 4.71, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "archivioC1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 1], [0, 1]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalRecord",
+                "class": "records",
+                "height": 1,                
+                "tVector": [ 4, 8.71, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "archivioC2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 1], [0, 1]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalRecord",
+                "class": "records",
+                "height": 1,                
+                "tVector": [ 5.5, 8.71, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "archivioD1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 1], [0, 1]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalRecord",
+                "class": "records",
+                "height": 1,                
+                "tVector": [ 2.5, 9.21, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "archivioD2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 1], [0, 1]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalRecord",
+                "class": "records",
+                "height": 1,                
+                "tVector": [ 4, 9.21, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "archivioE1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 1], [0, 1]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalRecord",
+                "class": "records",
+                "height": 1,                
+                "tVector": [ 4, 13.21, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "archivioE2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 1], [0, 1]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalRecord",
+                "class": "records",
+                "height": 1,                
+                "tVector": [ 5.5, 13.21, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "archivioF1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 1], [0, 1]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalRecord",
+                "class": "records",
+                "height": 1,                
+                "tVector": [ 2.5, 13.71, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "archivioF2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 1], [0, 1]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalRecord",
+                "class": "records",
+                "height": 1,                
+                "tVector": [ 4, 13.71, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "archivioG1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 1], [0, 1]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalRecord",
+                "class": "records",
+                "height": 1,                
+                "tVector": [ 4, 17.71, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "archivioG2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 1], [0, 1]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalRecord",
+                "class": "records",
+                "height": 1,                
+                "tVector": [ 5.5, 17.71, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "archivioF1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 1], [0, 1]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalRecord",
+                "class": "records",
+                "height": 1,                
+                "tVector": [ 2.5, 18.21, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "archivioF2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 1], [0, 1]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "medicalRecord",
+                "class": "records",
+                "height": 1,                
+                "tVector": [ 4, 18.21, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "tv",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "meetingRoom",
+                "class": "tv",                            
+                "tVector": [ 5.71, 4.81, 1],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "tv",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "meetingRoom",
+                "class": "surveillanceCamera",                            
+                "tVector": [ 4.41, 4.61, 2.7],
+                "rVector": [0, 0, 270]
+            }
+        },
+        {
+            "id": "tableMarble",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [5, 0], [5, 2], [0, 2]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "meetingRoom",
+                "class": "tableMarble",
+                "texture": "marmo045.jpg",                                 
+                "tVector": [ 1.9, 1.6, 0.8],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairMeetingRoomL",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "meetingRoom",
+                "class": "chair",                                            
+                "tVector": [ 2, 2.5, 0],
+                "rVector": [0, 0, 270]
+            }
+        },
+        {
+            "id": "chairMeetingRoomR",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "meetingRoom",
+                "class": "chair",                                            
+                "tVector": [ 7, 2.5, 0],
+                "rVector": [0, 0, 90]
+            }
+        },
+        {
+            "id": "chairMeetingRoom",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "meetingRoom",
+                "class": "chair",                                            
+                "tVector": [ 3.2, 1.5, 0],
+                "rVector": [0, 0, 0]
+            }
+        },        
+        {
+            "id": "chairMeetingRoom2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "meetingRoom",
+                "class": "chair",                                            
+                "tVector": [ 3.8, 1.5, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairMeetingRoom3",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "meetingRoom",
+                "class": "chair",                                            
+                "tVector": [ 4.4, 1.5, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairMeetingRoom4",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "meetingRoom",
+                "class": "chair",                                            
+                "tVector": [ 5, 1.5, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairMeetingRoom5",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "meetingRoom",
+                "class": "chair",                                            
+                "tVector": [ 5.6, 1.5, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairMeetingRoomB",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "meetingRoom",
+                "class": "chair",                                            
+                "tVector": [ 3.2, 4.1, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "chairMeetingRoomB2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "meetingRoom",
+                "class": "chair",                                            
+                "tVector": [ 3.8, 4.1, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "chairMeetingRoomB3",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "meetingRoom",
+                "class": "chair",                                            
+                "tVector": [ 4.4, 4.1, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "chairMeetingRoomB4",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "meetingRoom",
+                "class": "chair",                                            
+                "tVector": [ 5, 4.1, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "chairMeetingRoomB5",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "meetingRoom",
+                "class": "chair",                                            
+                "tVector": [ 5.6, 4.1, 0],
+                "rVector": [0, 0, 180]
+            }
+        },
+        {
+            "id": "deskOffice",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [2.5, 0], [2.5, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite21",
+                "class": "deskOffice",
+                "height": 0.9,
+                "texture": "wood-2.jpg",                                 
+                "tVector": [ 4.11, 2.21, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairSuite21A",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite21",
+                "class": "sediaScrivania",                                            
+                "tVector": [ 4.6, 3.81, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "monitorSuite21A",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite21",
+                "class": "monitorPc",
+                "height": 1,                
+                "tVector": [ 4.9, 2.95, 1.03],
+                "rVector": [0, 0, 90]
+            }
+        },
+        {
+            "id": "pcSuite21A",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite21",
+                "class": "torrePc",
+                "height": 1,                
+                "tVector": [ 4.4, 2.95, 1.03],
+                "rVector": [0, 0, 90]
+            }
+        },
+        {
+            "id": "deskOffice2",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [2.5, 0], [2.5, 1.5], [0, 1.5]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite21",
+                "class": "deskOffice",
+                "height": 0.9,
+                "texture": "wood-2.jpg",                                 
+                "tVector": [ 3.71, 8.21, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "chairSuite21B",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite21",
+                "class": "sediaScrivania",                                            
+                "tVector": [ 4.6, 9.81, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "monitorSuite21B",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite21",
+                "class": "monitorPc",
+                "height": 1,                
+                "tVector": [ 4.41, 8.95, 1.03],
+                "rVector": [0, 0, 90]
+            }
+        },
+        {
+            "id": "pcSuite21B",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite21",
+                "class": "torrePc",
+                "height": 1,                
+                "tVector": [ 3.91, 8.95, 1.03],
+                "rVector": [0, 0, 90]
+            }
+        },
+        {
+            "id": "pictureSuite21B1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Point",
+                "coordinates": [0, 0]
+            },
+            "properties": 
+            {
+                "parent": "suite21",
+                "class": "picture",
+                "texture": "colosseo.jpg",
+                "height": 1.5,
+                "width" : 2.5,                 
+                "tVector": [ 5.41, 11.95, 1.5],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "librarySuite21B1",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 0.6], [0, 0.6]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite21",
+                "class": "library",
+                "height": 1,
+                "texture": "books_texture3015.jpg",
+                "tVector": [ 3.91, 5.22, 0],
+                "rVector": [0, 0, 0]
+            }
+        },
+        {
+            "id": "librarySuite2121",
+            "type": "Feature",
+            "geometry": 
+            {
+                "type": "Polygon",
+                "coordinates": [
+                    [ [0, 0], [1.5, 0], [1.5, 0.6], [0, 0.6]  ]
+                ]
+            },
+            "properties": 
+            {
+                "parent": "suite21",
+                "class": "library",
+                "height": 1,
+                "texture": "books_texture3014.jpg",
+                "tVector": [ 5.41, 5.22, 0],
+                "rVector": [0, 0, 0]
+            }
+        }
+             
+
+
+
+    ]
+}
