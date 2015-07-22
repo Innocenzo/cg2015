@@ -1,0 +1,44 @@
+###GENERATORI DI ENERGIA RIDONDANTI
+I data centers sono progettati con sistemi di energia ridondanti 
+per permettere di fornire ininterrotamente il servizio in uno spiacevole 
+evento in un totale black out. Questi generatori di energia elettrica funzionano 
+con il diesel.
+###SERVER ROOM
+Armadi hostway rack  equipaggiati con i migliori componenti del settore e con cablagi ridondanti, 
+il cablaggio è di alta qualità necessario per il collegamento alla nostra
+spina dorsale principale. 
+La zona di produzione è completamente ridondante di aria condizionata 
+e di un sistema di rilevazione incendio precoce.
+###ACCESSO DATA CENTER
+L'accesso del data center è strettamente regolamentato e limitato
+da accesso con chiave magnetica. 
+Inoltre, telecamere a circuito chiuso controllano continuamente tutti i punti di
+accesso. Non è permesso entrare nel sito. Per entrare nel sito, c'è un passaggio controllato
+e limitato ulteriormente dallo scanner biometrico di impronte digitali,
+schede di accesso e gli armadietti o gabbie sono chiusi a chiave.
+###CORE NETWORK ROOM
+La rete è composta da router, switch, hub ecc.
+###NETWORK OPERATION CENTER
+I data center sono monitorati in locale e da remoto Network Operations Centers (NOC). Ogni NOC 
+è dotata di sistemi di state-of-the-art di controllare e mantenere la salute e le prestazioni di
+rete e livello di sistema. Lo staff è sempre disponibile 24x7x365 per fornire
+supporto e garantire che tutti i problemi dei clienti vengono risolti.
+###UNINTERRUPTIBLE POWER SUPPLY (UPS)
+I sistemi UPS proteggono da interruzioni durante brown-out
+e di fornire il ponte fondamentale tra la rete elettrica e l'energia del generatore durante lunghi black-out.
+###FIRE SUPPRESSION
+Sistemi di antincendio.
+###ELECTRICAL POWER DISTRIBUTION SYSTEM
+Sistemi di distribuzione dell'energia elettrica con tempo di attività continui sono assolutamente fondamentali
+per garantire il 99,9% di tempo di attività. Una interruzione momentanea può
+significare disastri. Data center sono progettati con alimentazioni in parallelo 
+per la ridondanza e scalabilità. L'hostway impiega anche il monitoraggio di
+alimentazione elettrica per la protezione contro il sovraccarico elettrico.
+###ELECTRICAL SWITCHGEAR
+Quadri elettrici
+###REDUNDANT HVAC COOLING SYSTEMS
+I Data center sono dotati di sistemi di raffreddamento completamente ridondanti 
+che mantengono costante la temperatura di esercizio ottimale per le prestazioni 
+dei server di peak. Sono costruiti con una ridondanza N+1 per consentire il normale 
+funzionamento in caso di guasti. I sistemi continuamente fanno circolare e filtrano l'aria
+per togliere la polvere e contaminanti.
