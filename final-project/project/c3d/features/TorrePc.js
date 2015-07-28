@@ -167,31 +167,7 @@ var cubeGeometryBase = new THREE.BoxGeometry(0.1,0.02,0.06);
       maniglia.position.set(0.177,0.07,0.05);
       o1.add(maniglia);
 
-//DECORAZIONI
-      var curve = new THREE.SplineCurve3([
-    new THREE.Vector3( 0, 0, 0 ),
-    new THREE.Vector3( 12, 0, 2 ),
-    new THREE.Vector3( 3, 0, 5 ),
-    
-    new THREE.Vector3( 0, 0, 18 )]
-);
 
-
-var geometry = new THREE.LatheGeometry( curve.getPoints(20),200,0, Math.PI);
-var material = new THREE.MeshLambertMaterial( { color: 0x0000ff} );
-material.side = THREE.DoubleSide;
-var lathe = new THREE.Mesh( geometry, material );
-lathe.rotation.x=Math.PI;
-lathe.scale.set(0.0001,0.01,0.01);
-lathe.position.set(0.23,0.21,0.1);
-o1.add( lathe );
-
-var lathe = new THREE.Mesh( geometry, material );
-lathe.rotation.x=Math.PI;
-lathe.rotation.y=Math.PI;
-lathe.scale.set(0.0001,0.01,0.01);
-lathe.position.set(0.23,0.21,-0.1);
-o1.add( lathe );
 	
 	o1.feature = this;
 	o1.name = this.id;

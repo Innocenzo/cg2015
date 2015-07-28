@@ -357,15 +357,6 @@ Server.prototype.get3DModel = function() {
       };
 
       server.add(s30);    
-      
-      
-
-      /*var axisHelper = new THREE.AxisHelper( 30 );      
-      server.add(axisHelper);*/
-
-      //server.rotation.x=-0.5*Math.PI;
-      //add the obj to the scene      
-      scene.add(server); 
          
 
 	server.feature = this;

@@ -27,8 +27,8 @@ var self = module.exports = {
 	    camera3D = camera;
 	    
 	    scene.add(camera);
-	    camera.position.set(105,86,105);
-	    camera.up = new THREE.Vector3(0,1,0);
+	    camera.position.set(305,86,105);
+	    camera.up = new THREE.Vector3(-100,50,200);
 	    camera.lookAt(scene.position);
 		
 	    var trackballControls = new THREE.TrackballControls(camera, container3D[0]);

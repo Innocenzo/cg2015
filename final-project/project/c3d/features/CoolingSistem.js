@@ -7,10 +7,9 @@ function CoolingSistem(feature) {
 }
 
 CoolingSistem.prototype.style =	{
-							weight: 0,
-						    fillColor: "#9b8c75",
-						    fillOpacity: 1,
-						    zIndex: 3
+							prefix: "fa",
+                                          icon: "minus",
+                                          zIndex: 3
 						};
 
 CoolingSistem.prototype.in_graph = true;

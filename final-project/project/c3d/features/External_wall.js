@@ -7,7 +7,7 @@ function External_wall(feature) {
 }
 
 External_wall.prototype.style = {
-									color: "#d8d8d8",
+									color: "#F5F5DC",
     								opacity: 1,
     								zIndex: 4
     							};

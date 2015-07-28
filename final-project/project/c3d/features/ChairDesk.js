@@ -1,23 +1,23 @@
 
  var Feature = require('./Feature.js');
 
-Feature.inherits(SediaScrivania, Feature);
+Feature.inherits(ChairDesk, Feature);
 
-function SediaScrivania(feature) {
+function ChairDesk(feature) {
     Feature.call(this, feature);
 }
 
-SediaScrivania.prototype.style = {
+ChairDesk.prototype.style = {
                             prefix: "fa",
                             icon: "minus",
                             zIndex: 3
                         };
 
-SediaScrivania.prototype.in_graph = true;
+ChairDesk.prototype.in_graph = true;
 
-SediaScrivania.prototype.in_2D_map = true;
+ChairDesk.prototype.in_2D_map = false;
 
-SediaScrivania.prototype.get3DModel = function() {
+ChairDesk.prototype.get3DModel = function() {
 
       var grigio = new THREE.MeshBasicMaterial({color : 0x98AFC7});
       var grigioChiaro = new THREE.MeshBasicMaterial({color : 0xD3D3D3});
@@ -27,7 +27,7 @@ SediaScrivania.prototype.get3DModel = function() {
       var nero = new THREE.MeshBasicMaterial({color : 0x000000});
 
 
-      var sediaScrivania = new THREE.Object3D();
+      var chairDesk = new THREE.Object3D();
       var baseSedia = creaBase();
       var corpoSedia = creaCorpo();
       var schienaleSedia = creaSchienale();
@@ -37,7 +37,7 @@ SediaScrivania.prototype.get3DModel = function() {
       schienaleSedia.position.x =-0.25;
       corpoSedia.add(schienaleSedia);
       baseSedia.add(corpoSedia);
-      sediaScrivania.add(baseSedia);
+      chairDesk.add(baseSedia);
 
 
 
@@ -307,15 +307,15 @@ SediaScrivania.prototype.get3DModel = function() {
       };
 
 
-    sediaScrivania.rotation.x= 0.5*Math.PI;
-    sediaScrivania.rotation.y= -0.5*Math.PI;
-    sediaScrivania.position.z-= 0.02;
+    chairDesk.rotation.x= 0.5*Math.PI;
+    chairDesk.rotation.y= -0.5*Math.PI;
+    chairDesk.position.z-= 0.02;
 
-    sediaScrivania.name = this.id;
-    sediaScrivania.feature = this;
-    var model = Feature.packageModel(sediaScrivania);
+    chairDesk.name = this.id;
+    chairDesk.feature = this;
+    var model = Feature.packageModel(chairDesk);
     return model;
 };
 
-module.exports = SediaScrivania;
+module.exports = ChairDesk;
 

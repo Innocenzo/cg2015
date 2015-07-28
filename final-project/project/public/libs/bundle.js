@@ -566,6 +566,329 @@ Chair.prototype.get3DModel = function() {
 };
 
 module.exports = Chair;
+},{"./Feature.js":"/var/www/HIJSON.git/c3d/features/Feature.js"}],"/var/www/HIJSON.git/c3d/features/ChairDesk.js":[function(require,module,exports){
+
+ var Feature = require('./Feature.js');
+
+Feature.inherits(ChairDesk, Feature);
+
+function ChairDesk(feature) {
+    Feature.call(this, feature);
+}
+
+ChairDesk.prototype.style = {
+                            prefix: "fa",
+                            icon: "minus",
+                            zIndex: 3
+                        };
+
+ChairDesk.prototype.in_graph = true;
+
+ChairDesk.prototype.in_2D_map = false;
+
+ChairDesk.prototype.get3DModel = function() {
+
+      var grigio = new THREE.MeshBasicMaterial({color : 0x98AFC7});
+      var grigioChiaro = new THREE.MeshBasicMaterial({color : 0xD3D3D3});
+      var grigioMetallico = new THREE.MeshBasicMaterial({color : 0x98AFC7});
+      var celesteMetallo = new THREE.MeshBasicMaterial({color : 0xFFFFFF});
+      var bianco = new THREE.MeshBasicMaterial({color : 0x000000});
+      var nero = new THREE.MeshBasicMaterial({color : 0x000000});
+
+
+      var chairDesk = new THREE.Object3D();
+      var baseSedia = creaBase();
+      var corpoSedia = creaCorpo();
+      var schienaleSedia = creaSchienale();
+      baseSedia.position.y = 0.1 +0.07;
+      corpoSedia.position.y = 0.1 +0.14;
+      schienaleSedia.position.y = 0.06;
+      schienaleSedia.position.x =-0.25;
+      corpoSedia.add(schienaleSedia);
+      baseSedia.add(corpoSedia);
+      chairDesk.add(baseSedia);
+
+
+
+
+      function creaSchienale(){
+        var schienale = new THREE.Object3D();
+        var geometriaReggiSchienale = new THREE.CylinderGeometry( 0.01 , 0.01 , 0.18 , 32 );
+        var geometriaReggiSchienale1 = new THREE.CylinderGeometry( 0.01 , 0.01 , 0.04 , 32 );
+        var geometriaNodo = new THREE.SphereGeometry( 0.01 , 32 , 32 );
+        var reggiSchienale1a = new THREE.Mesh( geometriaReggiSchienale , nero );
+        var reggiSchienale1b = new THREE.Mesh( geometriaReggiSchienale1 , nero );
+        var nodo1 = new THREE.Mesh( geometriaNodo , nero );
+        var reggiSchienale2a = new THREE.Mesh( geometriaReggiSchienale , nero );
+        var reggiSchienale2b = new THREE.Mesh( geometriaReggiSchienale1 , nero );
+        var nodo2 = new THREE.Mesh( geometriaNodo , nero );
+        var cuscinoSchienale = creaCuscinoSchienale();
+        reggiSchienale1a.rotation.z = Math.PI*(90 +6)/180;
+        reggiSchienale1a.position.z = 0.05;
+        reggiSchienale1a.position.x = 0.09;
+        reggiSchienale1b.rotation.z = -Math.PI*96/180;
+        reggiSchienale1b.position.x = 0.02*Math.cos(Math.PI*6/180);
+        nodo1.position.y = 0.09;
+        reggiSchienale2a.rotation.z = Math.PI*(90 +6)/180;
+        reggiSchienale2a.position.z =-0.05;
+        reggiSchienale2a.position.x = 0.09;
+        reggiSchienale2b.rotation.z =-Math.PI*96/180;
+        reggiSchienale2b.position.x = 0.02*Math.cos(Math.PI*6/180);
+        nodo2.position.y = 0.09;
+        cuscinoSchienale.rotation.y = Math.PI/2;
+        cuscinoSchienale.position.y = 0.25 +0.02;
+        nodo1.add(reggiSchienale1b);
+        reggiSchienale1a.add(nodo1);
+        schienale.add(reggiSchienale1a);
+        nodo2.add(reggiSchienale2b);
+        reggiSchienale2a.add(nodo2);
+        schienale.add(reggiSchienale2a);
+        schienale.add(cuscinoSchienale);      
+        return schienale;
+      };
+
+      function creaCuscinoSchienale(){
+        var cuscino = new THREE.Object3D();
+        var geometriaCentro = new THREE.BoxGeometry( 0.3 , 0.5 , 0.04 );
+        var geometriaBordoCorto = new THREE.CylinderGeometry( 0.02 , 0.02 , 0.3 , 32 );
+        var geometriaBordoLungo = new THREE.CylinderGeometry( 0.02 , 0.02 , 0.5 , 32 );
+        var geometriaAngolo = new THREE.SphereGeometry( 0.02 , 32 , 32 );
+        var bordoCorto1 = new THREE.Mesh( geometriaBordoCorto , bianco );
+        var bordoCorto2 = new THREE.Mesh( geometriaBordoCorto , bianco );
+        var bordoLungo1 = new THREE.Mesh( geometriaBordoLungo , bianco );
+        var bordoLungo2 = new THREE.Mesh( geometriaBordoLungo , bianco );
+        var angolo1c = new THREE.Mesh( geometriaAngolo , bianco); 
+        var angolo2c = new THREE.Mesh( geometriaAngolo , bianco); 
+        var angolo1l = new THREE.Mesh( geometriaAngolo , bianco); 
+        var angolo2l = new THREE.Mesh( geometriaAngolo , bianco); 
+        var centro = new THREE.Mesh( geometriaCentro , bianco );
+        bordoCorto1.rotation.z = Math.PI/2;
+        bordoCorto1.position.y = 0.25;
+        angolo1c.position.y = 0.15;
+        bordoCorto2.rotation.z = Math.PI/2;
+        bordoCorto2.position.y =-0.25;
+        angolo2c.position.y =-0.15;
+        bordoLungo1.position.x = 0.15;
+        angolo1l.position.y = 0.25;
+        bordoLungo2.position.x =-0.15;
+        angolo2l.position.y =-0.25;
+        bordoLungo2.add(angolo2l);
+        cuscino.add(bordoLungo2);
+        bordoLungo1.add(angolo1l);
+        cuscino.add(bordoLungo1);
+        bordoCorto2.add(angolo2c);
+        cuscino.add(bordoCorto2);
+        bordoCorto1.add(angolo1c);
+        cuscino.add(bordoCorto1);
+        cuscino.add(centro);
+        return cuscino;
+      };
+
+      function creaCorpo() {
+        var corpo = new THREE.Object3D();
+        var geometriaReggiCuscino1 = new THREE.BoxGeometry( 0.28 , 0.06 , 0.07 );
+        var geometriaReggiCuscino2 = new THREE.BoxGeometry( 0.3 , 0.04 , 0.09 );
+        var geometriaLevaCorta = new THREE.CylinderGeometry( 0.0045 , 0.0045 , 0.07 , 32 );
+        var geometriaLevaLunga = new THREE.CylinderGeometry( 0.0045 , 0.0045 , 0.09 , 32 );
+        var geometriaManicoLeva = new THREE.CylinderGeometry( 0.007 , 0.005 , 0.06 , 32 );
+        var geometriaBaseReggiBraccia = new THREE.CylinderGeometry( 0.01 , 0.01 , 0.2 , 32 ); 
+        var reggiCuscino1 = new THREE.Mesh( geometriaReggiCuscino1 , grigio );
+        var reggiCuscino2 = new THREE.Mesh( geometriaReggiCuscino2 , grigio );
+        var levaLunga = new THREE.Mesh( geometriaLevaLunga , bianco );
+        var levaCorta = new THREE.Mesh( geometriaLevaCorta , bianco );
+        var manicoLeva1 = new THREE.Mesh( geometriaManicoLeva , nero );
+        var manicoLeva2 = new THREE.Mesh( geometriaManicoLeva , nero );
+        var baseReggiBraccia1 = new THREE.Mesh( geometriaBaseReggiBraccia , grigio );
+        var baseReggiBraccia2 = new THREE.Mesh( geometriaBaseReggiBraccia , grigio );
+        var Cuscino = creaCuscino();
+        var braccio1 = creaBraccio();
+        var braccio2 = creaBraccio();
+        reggiCuscino1.position.y = 0.03;
+        reggiCuscino2.rotation.z = Math.PI*6/180;
+        reggiCuscino2.position.y = 0.06 ;
+        levaLunga.rotation.x = Math.PI*80/180;
+        levaLunga.position.z = 0.035 + 0.045;
+        levaLunga.position.x = 0.1;
+        levaCorta.rotation.x =-Math.PI*80/180;
+        levaCorta.position.z =-0.035 - 0.035;
+        levaCorta.position.x = 0.08;
+        manicoLeva2.position.y = 0.035 + 0.03;
+        manicoLeva1.position.y  = 0.045 + 0.03;
+        Cuscino.position.y = 0.02 + 0.02;
+        baseReggiBraccia1.rotation.x = Math.PI/2;
+        baseReggiBraccia1.rotation.y = -Math.PI*6/180;
+        baseReggiBraccia2.rotation.x = Math.PI/2;
+        baseReggiBraccia2.rotation.y = -Math.PI*6/180;
+        baseReggiBraccia1.position.z = 0.045 + 0.1;
+        baseReggiBraccia2.position.z =-0.045 - 0.1;
+        braccio1.position.y = 0.1;
+        braccio2.position.y = -0.1;
+        reggiCuscino2.add(Cuscino);
+        baseReggiBraccia1.add(braccio1);
+        baseReggiBraccia2.add(braccio2);
+        reggiCuscino2.add(baseReggiBraccia1);
+        reggiCuscino2.add(baseReggiBraccia2);
+        levaLunga.add(manicoLeva1);
+        levaCorta.add(manicoLeva2);
+        reggiCuscino1.add(levaLunga)
+        reggiCuscino1.add(levaCorta);
+        corpo.add(reggiCuscino2);
+        corpo.add(reggiCuscino1);
+        return corpo;
+      };
+
+      function creaBraccio(){
+        var braccio = new THREE.Object3D();
+        var geometriaNodo = new THREE.SphereGeometry( 0.01 , 32 , 32 );
+        var geometriaParteUno = new THREE.CylinderGeometry( 0.01 , 0.01 , 0.24 , 32 );
+        var geometriaParteDue = new THREE.CylinderGeometry( 0.01 , 0.01 , 0.04 , 32 );
+        var geometriaParteTre = new THREE.CylinderGeometry( 0.02 , 0.025 , 0.2 , 32 );
+        var nodo1 = new THREE.Mesh( geometriaNodo , grigio );
+        var nodo2 = new THREE.Mesh( geometriaNodo , grigio );
+        var parteUno = new THREE.Mesh( geometriaParteUno , grigio );
+        var parteDue = new THREE.Mesh( geometriaParteDue , grigio );
+        var parteTre = new THREE.Mesh( geometriaParteTre , bianco );
+        parteUno.rotation.x = Math.PI/2;
+        parteUno.rotation.z = -Math.PI*25/180;
+        parteUno.position.set(  0.12*Math.sin(parteUno.rotation.z) , 0 , -0.12*Math.cos(parteUno.rotation.z) );
+        parteDue.rotation.z = Math.PI*100/180;
+        parteDue.position.x = 0.02;
+        parteDue.position.y = 0.0035;
+        nodo2.position.y =-0.12;
+        parteTre.position.y =-0.1 -0.02;
+        parteDue.add(parteTre);
+        nodo2.add(parteDue);
+        parteUno.add(nodo2);
+        nodo1.add(parteUno);
+        braccio.add(nodo1);
+        return braccio;
+      };
+
+      function creaCuscino() {
+        var cuscino = new  THREE.Object3D();
+        var geometriaCentro = new THREE.BoxGeometry( 0.4 , 0.04 , 0.4 );
+        var centroCuscino = new THREE.Mesh( geometriaCentro , bianco );
+        bordo1 = creaBordo();
+        bordo2 = creaBordo();
+        bordo3 = creaBordo();
+        bordo4 = creaBordo();
+        bordo1.rotation.x = Math.PI/2;
+        bordo1.position.x = 0.2;
+        bordo2.rotation.x =-Math.PI/2;
+        bordo2.position.x =-0.2;
+        bordo3.rotation.z =-Math.PI/2;
+        bordo3.position.z =-0.2;
+        bordo4.rotation.z = Math.PI/2;
+        bordo4.position.z = 0.2;
+        centroCuscino.add(bordo1);
+        centroCuscino.add(bordo2);
+        centroCuscino.add(bordo3);
+        centroCuscino.add(bordo4);
+        cuscino.add(centroCuscino);
+        return cuscino;
+      };
+
+      function creaBordo(){
+        var geometriaBordo = new THREE.CylinderGeometry( 0.02 , 0.02 , 0.4 , 32 , true );
+        var geometriaAngolo = new THREE.SphereGeometry( 0.02 , 32 , 32 );
+        var angolo = new THREE.Mesh( geometriaAngolo , bianco );
+        var bordo = new  THREE.Mesh( geometriaBordo , bianco )
+        bordo.openEnded = 1;
+        angolo.position.y = 0.2;
+        bordo.add(angolo);
+        return bordo;
+      };
+
+      function creaBase(){
+        var base = new THREE.Object3D();
+        var geometriaPrimoCilindro = new THREE.CylinderGeometry( 0.027 , 0.027 , 0.05 , 32 );
+        var geometriaSecondoCilindro = new THREE.CylinderGeometry( 0.03 , 0.03 , 0.2 , 32 );
+        var geometriaCopriSecondoCilindro = new THREE.CylinderGeometry( 0.04 , 0.04 , 0.06 , 32 );
+        var geometriaCopriSecondoCilindro2 = new THREE.TorusGeometry( 0.04 , 0.025 , 32 , 100 );
+        var geometriaTerzoCilindro = new THREE.CylinderGeometry( 0.02 , 0.02 , 0.14 , 32 );
+        var primoCilindro = new THREE.Mesh( geometriaPrimoCilindro , grigioMetallico );
+        var secondoCilindro = new THREE.Mesh( geometriaSecondoCilindro , grigioMetallico );
+        var copriSecondoCilindro = new THREE.Mesh( geometriaCopriSecondoCilindro , grigioMetallico );
+        var copriSecondoCilindro2 = new THREE.Mesh( geometriaCopriSecondoCilindro2 , grigioMetallico );
+        var terzoCilindro = new THREE.Mesh( geometriaTerzoCilindro , grigioMetallico );
+        var ruote = creaRuote();
+        primoCilindro.position.y =-0.1 - 0.025;
+        terzoCilindro.position.y = 0.1 + 0.07;
+        ruote.position.y =-0.07;
+        copriSecondoCilindro.position.y =-0.05;
+        copriSecondoCilindro2.rotation.x = Math.PI/2;
+        copriSecondoCilindro2.position.y =-0.05;
+        secondoCilindro.add(copriSecondoCilindro);
+        secondoCilindro.add(copriSecondoCilindro2);
+        secondoCilindro.add(ruote);
+        secondoCilindro.add(primoCilindro);
+        secondoCilindro.add(terzoCilindro);
+        base.add(secondoCilindro);
+        return base;
+      };
+
+      function creaRuote(){
+        var ruote = new THREE.Object3D();
+          for (var i = 0; i < 5; i++) {
+            var ruota = creaRuota();
+            ruota.rotation.y = 2*Math.PI*i*72/360;
+            ruote.add(ruota);
+          };
+        return ruote;
+      };
+
+
+      function creaRuota(){
+        var geometriaBraccio = new THREE.CylinderGeometry( 0.027 , 0.02 , 0.3 , 32 );
+        var geometriaSostegno = new THREE.CylinderGeometry( 0.02 , 0.01 , 0.02 , 32 );
+        var geometriaPerno = new THREE.CylinderGeometry( 0.008 , 0.008 , 0.01 , 32 );
+        var geometriaInizioSostegno = new THREE.SphereGeometry( 0.02 , 32 , 32 );
+        var geometriaRuota = new THREE.CylinderGeometry( 0.025 , 0.025 , 0.05 , 32 );
+        var geometriaInternoRuota = new THREE.CylinderGeometry( 0.02 , 0.02 , 0.051 , 32 );
+        var geometriaCopriRuota = new THREE.CylinderGeometry( 0.026 , 0.026 , 0.045 , 32 );
+        var braccio = new THREE.Mesh( geometriaBraccio , grigioMetallico );
+        var sostegno = new THREE.Mesh( geometriaSostegno , grigioMetallico );
+        var perno = new THREE.Mesh( geometriaPerno , grigioChiaro );
+        var inizioSostegno = new THREE.Mesh( geometriaInizioSostegno , grigioMetallico );
+        var ruota = new THREE.Mesh( geometriaRuota , nero );
+        var copriRuota = new THREE.Mesh( geometriaCopriRuota , grigioMetallico );
+        var internoRuota = new THREE.Mesh( geometriaInternoRuota , grigio );
+        var fineBraccio = new THREE.Object3D();
+        var inizioBraccio = new THREE.Object3D();
+        braccio.rotation.z = Math.PI*80/180;
+        braccio.position.x = 0.01 + 0.15;
+        fineBraccio.rotation.z =-Math.PI*80/180;
+        fineBraccio.position.y =-Math.sin(Math.PI*80/180)*0.15;
+        sostegno.position.y =-0.01;
+        perno.position.y =-0.01 - 0.005;
+        ruota.rotation.x = Math.PI/2;
+        ruota.position.y =-0.005 -0.02;
+        copriRuota.position.z =-0.003;
+        ruota.add(internoRuota);
+        ruota.add(copriRuota);
+        perno.add(ruota);
+        sostegno.add(perno);
+        fineBraccio.add(sostegno);
+        fineBraccio.add(inizioSostegno);
+        braccio.add(fineBraccio);
+        inizioBraccio.add(braccio);
+        return inizioBraccio;
+      };
+
+
+    chairDesk.rotation.x= 0.5*Math.PI;
+    chairDesk.rotation.y= -0.5*Math.PI;
+    chairDesk.position.z-= 0.02;
+
+    chairDesk.name = this.id;
+    chairDesk.feature = this;
+    var model = Feature.packageModel(chairDesk);
+    return model;
+};
+
+module.exports = ChairDesk;
+
+
 },{"./Feature.js":"/var/www/HIJSON.git/c3d/features/Feature.js"}],"/var/www/HIJSON.git/c3d/features/ChairObj.js":[function(require,module,exports){
 var Feature = require('./Feature.js');
 
@@ -646,10 +969,9 @@ function CoolingSistem(feature) {
 }
 
 CoolingSistem.prototype.style =	{
-							weight: 0,
-						    fillColor: "#9b8c75",
-						    fillOpacity: 1,
-						    zIndex: 3
+							prefix: "fa",
+                                          icon: "minus",
+                                          zIndex: 3
 						};
 
 CoolingSistem.prototype.in_graph = true;
@@ -1111,7 +1433,7 @@ function External_wall(feature) {
 }
 
 External_wall.prototype.style = {
-									color: "#d8d8d8",
+									color: "#F5F5DC",
     								opacity: 1,
     								zIndex: 4
     							};
@@ -1554,7 +1876,7 @@ function Internal_wall(feature) {
 }
 
 Internal_wall.prototype.style = { 
-							    	color: "#EEEEEE",
+							    	color: "#F5F5DC",
     								opacity: 1,
                                     zIndex: 5
     							};
@@ -1897,6 +2219,182 @@ o1.add( lathe );
 };
 
 module.exports = MonitorPc;
+},{"./Feature.js":"/var/www/HIJSON.git/c3d/features/Feature.js"}],"/var/www/HIJSON.git/c3d/features/PcMac.js":[function(require,module,exports){
+var Feature = require('./Feature.js');
+
+Feature.inherits(PcMac, Feature);
+
+function PcMac(feature) {
+	Feature.call(this, feature);
+}
+
+PcMac.prototype.style =	{
+							prefix: "fa",
+	    					icon: "minus",
+	    					zIndex: 3
+						};
+
+PcMac.prototype.in_graph = true;
+PcMac.prototype.in_2D_map = true;
+
+PcMac.prototype.get3DModel = function() {
+
+	function createMesh(geom, imageFile) {
+        var texture = THREE.ImageUtils.loadTexture("assets/textures/" + imageFile);
+        var mat = new THREE.MeshPhongMaterial();
+        mat.map = texture;
+
+        var mesh = new THREE.Mesh(geom, mat);
+        return mesh;
+      }
+
+
+	function drawShape() {
+
+        // create a basic shape
+        var shape = new THREE.Shape();
+
+        // startpoint
+        shape.moveTo(0, 0);
+
+        shape.lineTo(0, 0.50);
+        shape.lineTo(3.90, 0.50);
+        shape.lineTo(3.90, 0);
+
+        return shape;
+      }
+
+      function createMesh2(geom) {
+
+        var mat = new THREE.MeshBasicMaterial( {color: 0xFF0000} );
+        var mesh = new THREE.Mesh(geom, mat);
+
+        return mesh;
+      }
+
+      var options = {
+            amount: 0,
+            bevelThickness: 0.3,
+            bevelSize: 4,
+            bevelSegments: 32,
+            bevelEnabled: true,
+            curveSegments: 32,            
+          };
+     
+     var pcMac = new THREE.Object3D();
+
+     shape = createMesh(new THREE.ExtrudeGeometry(drawShape(), options),"acciaio.jpg");
+
+      shape.scale.set(0.1,0.1,0.1);
+      shape.rotation.z = -0.5*Math.PI;
+      shape.position.x = -0.04;
+      shape.position.y = 0.04;
+      
+
+      pcMac.add(shape);
+
+    var pictureX = 0.85;
+    var pictureY =1.2;
+    var pictureZ = 0.001;
+    var texture = "apple.jpg";
+    
+
+    var picture = new THREE.Object3D();
+
+
+    var display = createMesh(new THREE.BoxGeometry( pictureX, pictureY, pictureZ), texture); 
+    display.position.z = 0.02;
+
+
+    var boxLeft = createMesh(new THREE.BoxGeometry(0.03, pictureY, 0.03), "acciaio.jpg"); 
+    boxLeft.position.x = -pictureX/2;
+
+
+    boxRight = boxLeft.clone();
+    boxRight.position.x = pictureX/2;
+
+
+    var boxDown = createMesh(new THREE.BoxGeometry(pictureX+0.03, 0.03, 0.03), "acciaio.jpg"); 
+    boxDown.position.y = -pictureY/2;
+
+
+    boxUp = boxDown.clone();
+    boxUp.position.y = pictureY/2;
+    
+
+    picture.add(boxLeft);    
+    picture.add(boxRight);
+    picture.add(boxUp);
+    picture.add(boxDown);
+    picture.add(display);
+    picture.position.z = 0.01;
+    picture.position.y = -0.15;
+
+      	
+      pcMac.add(picture);
+
+
+  var p1 =createMesh( new THREE.BoxGeometry( 0.55, 0.22, 0.015 ), "acciaio.jpg"); 
+  p1.position.y = -0.16;
+  p1.position.z = -0.03;
+  p1.position.x = -0.28;
+
+  pcMac.add(p1);
+
+
+  var p2 = createMesh(new THREE.BoxGeometry( 0.3, 0.22, 0.015 ), "acciaio.jpg"); 
+  p2.position.y = -0.16;
+  p2.position.z = 0.11;
+  p2.position.x = -0.56;
+  p2.rotation.y = 0.5*Math.PI;
+
+  pcMac.add(p2);
+
+  var keyboard = createMesh(new THREE.BoxGeometry( 0.6, 0.2, 0.015 ), "keyboard.jpg"); 
+  keyboard.position.y = -0.16;
+  keyboard.position.z = 0.51;
+  keyboard.position.x = -0.56;
+  keyboard.rotation.y = 0.5*Math.PI;
+  keyboard.rotation.x = 0.5*Math.PI;
+  keyboard.rotation.z   = Math.PI;
+
+  pcMac.add(keyboard);
+
+  var mac = createMesh(new THREE.BoxGeometry( 0.3, 0.3, 0.055 ), "acciaio.jpg"); 
+  mac.position.y = 0.22;
+  mac.position.z = 0.11;
+  mac.position.x = -0.56;
+  mac.rotation.y = 0.5*Math.PI;
+  mac.rotation.x = 0.5*Math.PI;
+  mac.rotation.z   = Math.PI;
+
+  pcMac.add(mac);
+
+  var logoMac = createMesh(new THREE.BoxGeometry( 0.3, 0.3, 0.01 ), "macmini.jpg"); 
+  logoMac.position.y = 0.22;
+  logoMac.position.z = 0.11;
+  logoMac.position.x = -0.529;
+  logoMac.rotation.y = 0.5*Math.PI;
+  logoMac.rotation.x = 0.5*Math.PI;
+  logoMac.rotation.z   = Math.PI;
+
+  pcMac.add(logoMac);
+
+	pcMac.feature = this;
+	pcMac.name = this.id;
+	//pcMac.rotation.x=0.5*Math.PI;
+	pcMac.rotation.y=0.5*Math.PI;
+	pcMac.rotation.y=-0.5*Math.PI;
+	pcMac.scale.set(0.65,0.65,0.65);
+
+
+	
+	var model = Feature.packageModel(pcMac);
+
+	return model;
+};
+
+module.exports = PcMac;
 },{"./Feature.js":"/var/www/HIJSON.git/c3d/features/Feature.js"}],"/var/www/HIJSON.git/c3d/features/Picture.js":[function(require,module,exports){
 var Feature = require('./Feature.js');
 
@@ -2247,329 +2745,6 @@ Router.prototype.get3DModel = function() {
 };
 
 module.exports = Router;
-},{"./Feature.js":"/var/www/HIJSON.git/c3d/features/Feature.js"}],"/var/www/HIJSON.git/c3d/features/SediaScrivania.js":[function(require,module,exports){
-
- var Feature = require('./Feature.js');
-
-Feature.inherits(SediaScrivania, Feature);
-
-function SediaScrivania(feature) {
-    Feature.call(this, feature);
-}
-
-SediaScrivania.prototype.style = {
-                            prefix: "fa",
-                            icon: "minus",
-                            zIndex: 3
-                        };
-
-SediaScrivania.prototype.in_graph = true;
-
-SediaScrivania.prototype.in_2D_map = true;
-
-SediaScrivania.prototype.get3DModel = function() {
-
-      var grigio = new THREE.MeshBasicMaterial({color : 0x98AFC7});
-      var grigioChiaro = new THREE.MeshBasicMaterial({color : 0xD3D3D3});
-      var grigioMetallico = new THREE.MeshBasicMaterial({color : 0x98AFC7});
-      var celesteMetallo = new THREE.MeshBasicMaterial({color : 0xFFFFFF});
-      var bianco = new THREE.MeshBasicMaterial({color : 0x000000});
-      var nero = new THREE.MeshBasicMaterial({color : 0x000000});
-
-
-      var sediaScrivania = new THREE.Object3D();
-      var baseSedia = creaBase();
-      var corpoSedia = creaCorpo();
-      var schienaleSedia = creaSchienale();
-      baseSedia.position.y = 0.1 +0.07;
-      corpoSedia.position.y = 0.1 +0.14;
-      schienaleSedia.position.y = 0.06;
-      schienaleSedia.position.x =-0.25;
-      corpoSedia.add(schienaleSedia);
-      baseSedia.add(corpoSedia);
-      sediaScrivania.add(baseSedia);
-
-
-
-
-      function creaSchienale(){
-        var schienale = new THREE.Object3D();
-        var geometriaReggiSchienale = new THREE.CylinderGeometry( 0.01 , 0.01 , 0.18 , 32 );
-        var geometriaReggiSchienale1 = new THREE.CylinderGeometry( 0.01 , 0.01 , 0.04 , 32 );
-        var geometriaNodo = new THREE.SphereGeometry( 0.01 , 32 , 32 );
-        var reggiSchienale1a = new THREE.Mesh( geometriaReggiSchienale , nero );
-        var reggiSchienale1b = new THREE.Mesh( geometriaReggiSchienale1 , nero );
-        var nodo1 = new THREE.Mesh( geometriaNodo , nero );
-        var reggiSchienale2a = new THREE.Mesh( geometriaReggiSchienale , nero );
-        var reggiSchienale2b = new THREE.Mesh( geometriaReggiSchienale1 , nero );
-        var nodo2 = new THREE.Mesh( geometriaNodo , nero );
-        var cuscinoSchienale = creaCuscinoSchienale();
-        reggiSchienale1a.rotation.z = Math.PI*(90 +6)/180;
-        reggiSchienale1a.position.z = 0.05;
-        reggiSchienale1a.position.x = 0.09;
-        reggiSchienale1b.rotation.z = -Math.PI*96/180;
-        reggiSchienale1b.position.x = 0.02*Math.cos(Math.PI*6/180);
-        nodo1.position.y = 0.09;
-        reggiSchienale2a.rotation.z = Math.PI*(90 +6)/180;
-        reggiSchienale2a.position.z =-0.05;
-        reggiSchienale2a.position.x = 0.09;
-        reggiSchienale2b.rotation.z =-Math.PI*96/180;
-        reggiSchienale2b.position.x = 0.02*Math.cos(Math.PI*6/180);
-        nodo2.position.y = 0.09;
-        cuscinoSchienale.rotation.y = Math.PI/2;
-        cuscinoSchienale.position.y = 0.25 +0.02;
-        nodo1.add(reggiSchienale1b);
-        reggiSchienale1a.add(nodo1);
-        schienale.add(reggiSchienale1a);
-        nodo2.add(reggiSchienale2b);
-        reggiSchienale2a.add(nodo2);
-        schienale.add(reggiSchienale2a);
-        schienale.add(cuscinoSchienale);      
-        return schienale;
-      };
-
-      function creaCuscinoSchienale(){
-        var cuscino = new THREE.Object3D();
-        var geometriaCentro = new THREE.BoxGeometry( 0.3 , 0.5 , 0.04 );
-        var geometriaBordoCorto = new THREE.CylinderGeometry( 0.02 , 0.02 , 0.3 , 32 );
-        var geometriaBordoLungo = new THREE.CylinderGeometry( 0.02 , 0.02 , 0.5 , 32 );
-        var geometriaAngolo = new THREE.SphereGeometry( 0.02 , 32 , 32 );
-        var bordoCorto1 = new THREE.Mesh( geometriaBordoCorto , bianco );
-        var bordoCorto2 = new THREE.Mesh( geometriaBordoCorto , bianco );
-        var bordoLungo1 = new THREE.Mesh( geometriaBordoLungo , bianco );
-        var bordoLungo2 = new THREE.Mesh( geometriaBordoLungo , bianco );
-        var angolo1c = new THREE.Mesh( geometriaAngolo , bianco); 
-        var angolo2c = new THREE.Mesh( geometriaAngolo , bianco); 
-        var angolo1l = new THREE.Mesh( geometriaAngolo , bianco); 
-        var angolo2l = new THREE.Mesh( geometriaAngolo , bianco); 
-        var centro = new THREE.Mesh( geometriaCentro , bianco );
-        bordoCorto1.rotation.z = Math.PI/2;
-        bordoCorto1.position.y = 0.25;
-        angolo1c.position.y = 0.15;
-        bordoCorto2.rotation.z = Math.PI/2;
-        bordoCorto2.position.y =-0.25;
-        angolo2c.position.y =-0.15;
-        bordoLungo1.position.x = 0.15;
-        angolo1l.position.y = 0.25;
-        bordoLungo2.position.x =-0.15;
-        angolo2l.position.y =-0.25;
-        bordoLungo2.add(angolo2l);
-        cuscino.add(bordoLungo2);
-        bordoLungo1.add(angolo1l);
-        cuscino.add(bordoLungo1);
-        bordoCorto2.add(angolo2c);
-        cuscino.add(bordoCorto2);
-        bordoCorto1.add(angolo1c);
-        cuscino.add(bordoCorto1);
-        cuscino.add(centro);
-        return cuscino;
-      };
-
-      function creaCorpo() {
-        var corpo = new THREE.Object3D();
-        var geometriaReggiCuscino1 = new THREE.BoxGeometry( 0.28 , 0.06 , 0.07 );
-        var geometriaReggiCuscino2 = new THREE.BoxGeometry( 0.3 , 0.04 , 0.09 );
-        var geometriaLevaCorta = new THREE.CylinderGeometry( 0.0045 , 0.0045 , 0.07 , 32 );
-        var geometriaLevaLunga = new THREE.CylinderGeometry( 0.0045 , 0.0045 , 0.09 , 32 );
-        var geometriaManicoLeva = new THREE.CylinderGeometry( 0.007 , 0.005 , 0.06 , 32 );
-        var geometriaBaseReggiBraccia = new THREE.CylinderGeometry( 0.01 , 0.01 , 0.2 , 32 ); 
-        var reggiCuscino1 = new THREE.Mesh( geometriaReggiCuscino1 , grigio );
-        var reggiCuscino2 = new THREE.Mesh( geometriaReggiCuscino2 , grigio );
-        var levaLunga = new THREE.Mesh( geometriaLevaLunga , bianco );
-        var levaCorta = new THREE.Mesh( geometriaLevaCorta , bianco );
-        var manicoLeva1 = new THREE.Mesh( geometriaManicoLeva , nero );
-        var manicoLeva2 = new THREE.Mesh( geometriaManicoLeva , nero );
-        var baseReggiBraccia1 = new THREE.Mesh( geometriaBaseReggiBraccia , grigio );
-        var baseReggiBraccia2 = new THREE.Mesh( geometriaBaseReggiBraccia , grigio );
-        var Cuscino = creaCuscino();
-        var braccio1 = creaBraccio();
-        var braccio2 = creaBraccio();
-        reggiCuscino1.position.y = 0.03;
-        reggiCuscino2.rotation.z = Math.PI*6/180;
-        reggiCuscino2.position.y = 0.06 ;
-        levaLunga.rotation.x = Math.PI*80/180;
-        levaLunga.position.z = 0.035 + 0.045;
-        levaLunga.position.x = 0.1;
-        levaCorta.rotation.x =-Math.PI*80/180;
-        levaCorta.position.z =-0.035 - 0.035;
-        levaCorta.position.x = 0.08;
-        manicoLeva2.position.y = 0.035 + 0.03;
-        manicoLeva1.position.y  = 0.045 + 0.03;
-        Cuscino.position.y = 0.02 + 0.02;
-        baseReggiBraccia1.rotation.x = Math.PI/2;
-        baseReggiBraccia1.rotation.y = -Math.PI*6/180;
-        baseReggiBraccia2.rotation.x = Math.PI/2;
-        baseReggiBraccia2.rotation.y = -Math.PI*6/180;
-        baseReggiBraccia1.position.z = 0.045 + 0.1;
-        baseReggiBraccia2.position.z =-0.045 - 0.1;
-        braccio1.position.y = 0.1;
-        braccio2.position.y = -0.1;
-        reggiCuscino2.add(Cuscino);
-        baseReggiBraccia1.add(braccio1);
-        baseReggiBraccia2.add(braccio2);
-        reggiCuscino2.add(baseReggiBraccia1);
-        reggiCuscino2.add(baseReggiBraccia2);
-        levaLunga.add(manicoLeva1);
-        levaCorta.add(manicoLeva2);
-        reggiCuscino1.add(levaLunga)
-        reggiCuscino1.add(levaCorta);
-        corpo.add(reggiCuscino2);
-        corpo.add(reggiCuscino1);
-        return corpo;
-      };
-
-      function creaBraccio(){
-        var braccio = new THREE.Object3D();
-        var geometriaNodo = new THREE.SphereGeometry( 0.01 , 32 , 32 );
-        var geometriaParteUno = new THREE.CylinderGeometry( 0.01 , 0.01 , 0.24 , 32 );
-        var geometriaParteDue = new THREE.CylinderGeometry( 0.01 , 0.01 , 0.04 , 32 );
-        var geometriaParteTre = new THREE.CylinderGeometry( 0.02 , 0.025 , 0.2 , 32 );
-        var nodo1 = new THREE.Mesh( geometriaNodo , grigio );
-        var nodo2 = new THREE.Mesh( geometriaNodo , grigio );
-        var parteUno = new THREE.Mesh( geometriaParteUno , grigio );
-        var parteDue = new THREE.Mesh( geometriaParteDue , grigio );
-        var parteTre = new THREE.Mesh( geometriaParteTre , bianco );
-        parteUno.rotation.x = Math.PI/2;
-        parteUno.rotation.z = -Math.PI*25/180;
-        parteUno.position.set(  0.12*Math.sin(parteUno.rotation.z) , 0 , -0.12*Math.cos(parteUno.rotation.z) );
-        parteDue.rotation.z = Math.PI*100/180;
-        parteDue.position.x = 0.02;
-        parteDue.position.y = 0.0035;
-        nodo2.position.y =-0.12;
-        parteTre.position.y =-0.1 -0.02;
-        parteDue.add(parteTre);
-        nodo2.add(parteDue);
-        parteUno.add(nodo2);
-        nodo1.add(parteUno);
-        braccio.add(nodo1);
-        return braccio;
-      };
-
-      function creaCuscino() {
-        var cuscino = new  THREE.Object3D();
-        var geometriaCentro = new THREE.BoxGeometry( 0.4 , 0.04 , 0.4 );
-        var centroCuscino = new THREE.Mesh( geometriaCentro , bianco );
-        bordo1 = creaBordo();
-        bordo2 = creaBordo();
-        bordo3 = creaBordo();
-        bordo4 = creaBordo();
-        bordo1.rotation.x = Math.PI/2;
-        bordo1.position.x = 0.2;
-        bordo2.rotation.x =-Math.PI/2;
-        bordo2.position.x =-0.2;
-        bordo3.rotation.z =-Math.PI/2;
-        bordo3.position.z =-0.2;
-        bordo4.rotation.z = Math.PI/2;
-        bordo4.position.z = 0.2;
-        centroCuscino.add(bordo1);
-        centroCuscino.add(bordo2);
-        centroCuscino.add(bordo3);
-        centroCuscino.add(bordo4);
-        cuscino.add(centroCuscino);
-        return cuscino;
-      };
-
-      function creaBordo(){
-        var geometriaBordo = new THREE.CylinderGeometry( 0.02 , 0.02 , 0.4 , 32 , true );
-        var geometriaAngolo = new THREE.SphereGeometry( 0.02 , 32 , 32 );
-        var angolo = new THREE.Mesh( geometriaAngolo , bianco );
-        var bordo = new  THREE.Mesh( geometriaBordo , bianco )
-        bordo.openEnded = 1;
-        angolo.position.y = 0.2;
-        bordo.add(angolo);
-        return bordo;
-      };
-
-      function creaBase(){
-        var base = new THREE.Object3D();
-        var geometriaPrimoCilindro = new THREE.CylinderGeometry( 0.027 , 0.027 , 0.05 , 32 );
-        var geometriaSecondoCilindro = new THREE.CylinderGeometry( 0.03 , 0.03 , 0.2 , 32 );
-        var geometriaCopriSecondoCilindro = new THREE.CylinderGeometry( 0.04 , 0.04 , 0.06 , 32 );
-        var geometriaCopriSecondoCilindro2 = new THREE.TorusGeometry( 0.04 , 0.025 , 32 , 100 );
-        var geometriaTerzoCilindro = new THREE.CylinderGeometry( 0.02 , 0.02 , 0.14 , 32 );
-        var primoCilindro = new THREE.Mesh( geometriaPrimoCilindro , grigioMetallico );
-        var secondoCilindro = new THREE.Mesh( geometriaSecondoCilindro , grigioMetallico );
-        var copriSecondoCilindro = new THREE.Mesh( geometriaCopriSecondoCilindro , grigioMetallico );
-        var copriSecondoCilindro2 = new THREE.Mesh( geometriaCopriSecondoCilindro2 , grigioMetallico );
-        var terzoCilindro = new THREE.Mesh( geometriaTerzoCilindro , grigioMetallico );
-        var ruote = creaRuote();
-        primoCilindro.position.y =-0.1 - 0.025;
-        terzoCilindro.position.y = 0.1 + 0.07;
-        ruote.position.y =-0.07;
-        copriSecondoCilindro.position.y =-0.05;
-        copriSecondoCilindro2.rotation.x = Math.PI/2;
-        copriSecondoCilindro2.position.y =-0.05;
-        secondoCilindro.add(copriSecondoCilindro);
-        secondoCilindro.add(copriSecondoCilindro2);
-        secondoCilindro.add(ruote);
-        secondoCilindro.add(primoCilindro);
-        secondoCilindro.add(terzoCilindro);
-        base.add(secondoCilindro);
-        return base;
-      };
-
-      function creaRuote(){
-        var ruote = new THREE.Object3D();
-          for (var i = 0; i < 5; i++) {
-            var ruota = creaRuota();
-            ruota.rotation.y = 2*Math.PI*i*72/360;
-            ruote.add(ruota);
-          };
-        return ruote;
-      };
-
-
-      function creaRuota(){
-        var geometriaBraccio = new THREE.CylinderGeometry( 0.027 , 0.02 , 0.3 , 32 );
-        var geometriaSostegno = new THREE.CylinderGeometry( 0.02 , 0.01 , 0.02 , 32 );
-        var geometriaPerno = new THREE.CylinderGeometry( 0.008 , 0.008 , 0.01 , 32 );
-        var geometriaInizioSostegno = new THREE.SphereGeometry( 0.02 , 32 , 32 );
-        var geometriaRuota = new THREE.CylinderGeometry( 0.025 , 0.025 , 0.05 , 32 );
-        var geometriaInternoRuota = new THREE.CylinderGeometry( 0.02 , 0.02 , 0.051 , 32 );
-        var geometriaCopriRuota = new THREE.CylinderGeometry( 0.026 , 0.026 , 0.045 , 32 );
-        var braccio = new THREE.Mesh( geometriaBraccio , grigioMetallico );
-        var sostegno = new THREE.Mesh( geometriaSostegno , grigioMetallico );
-        var perno = new THREE.Mesh( geometriaPerno , grigioChiaro );
-        var inizioSostegno = new THREE.Mesh( geometriaInizioSostegno , grigioMetallico );
-        var ruota = new THREE.Mesh( geometriaRuota , nero );
-        var copriRuota = new THREE.Mesh( geometriaCopriRuota , grigioMetallico );
-        var internoRuota = new THREE.Mesh( geometriaInternoRuota , grigio );
-        var fineBraccio = new THREE.Object3D();
-        var inizioBraccio = new THREE.Object3D();
-        braccio.rotation.z = Math.PI*80/180;
-        braccio.position.x = 0.01 + 0.15;
-        fineBraccio.rotation.z =-Math.PI*80/180;
-        fineBraccio.position.y =-Math.sin(Math.PI*80/180)*0.15;
-        sostegno.position.y =-0.01;
-        perno.position.y =-0.01 - 0.005;
-        ruota.rotation.x = Math.PI/2;
-        ruota.position.y =-0.005 -0.02;
-        copriRuota.position.z =-0.003;
-        ruota.add(internoRuota);
-        ruota.add(copriRuota);
-        perno.add(ruota);
-        sostegno.add(perno);
-        fineBraccio.add(sostegno);
-        fineBraccio.add(inizioSostegno);
-        braccio.add(fineBraccio);
-        inizioBraccio.add(braccio);
-        return inizioBraccio;
-      };
-
-
-    sediaScrivania.rotation.x= 0.5*Math.PI;
-    sediaScrivania.rotation.y= -0.5*Math.PI;
-    sediaScrivania.position.z-= 0.02;
-
-    sediaScrivania.name = this.id;
-    sediaScrivania.feature = this;
-    var model = Feature.packageModel(sediaScrivania);
-    return model;
-};
-
-module.exports = SediaScrivania;
-
-
 },{"./Feature.js":"/var/www/HIJSON.git/c3d/features/Feature.js"}],"/var/www/HIJSON.git/c3d/features/Server.js":[function(require,module,exports){
 var Feature = require('./Feature.js');
 
@@ -2930,15 +3105,6 @@ Server.prototype.get3DModel = function() {
       };
 
       server.add(s30);    
-      
-      
-
-      /*var axisHelper = new THREE.AxisHelper( 30 );      
-      server.add(axisHelper);*/
-
-      //server.rotation.x=-0.5*Math.PI;
-      //add the obj to the scene      
-      scene.add(server); 
          
 
 	server.feature = this;
@@ -3399,31 +3565,7 @@ var cubeGeometryBase = new THREE.BoxGeometry(0.1,0.02,0.06);
       maniglia.position.set(0.177,0.07,0.05);
       o1.add(maniglia);
 
-//DECORAZIONI
-      var curve = new THREE.SplineCurve3([
-    new THREE.Vector3( 0, 0, 0 ),
-    new THREE.Vector3( 12, 0, 2 ),
-    new THREE.Vector3( 3, 0, 5 ),
-    
-    new THREE.Vector3( 0, 0, 18 )]
-);
 
-
-var geometry = new THREE.LatheGeometry( curve.getPoints(20),200,0, Math.PI);
-var material = new THREE.MeshLambertMaterial( { color: 0x0000ff} );
-material.side = THREE.DoubleSide;
-var lathe = new THREE.Mesh( geometry, material );
-lathe.rotation.x=Math.PI;
-lathe.scale.set(0.0001,0.01,0.01);
-lathe.position.set(0.23,0.21,0.1);
-o1.add( lathe );
-
-var lathe = new THREE.Mesh( geometry, material );
-lathe.rotation.x=Math.PI;
-lathe.rotation.y=Math.PI;
-lathe.scale.set(0.0001,0.01,0.01);
-lathe.position.set(0.23,0.21,-0.1);
-o1.add( lathe );
 	
 	o1.feature = this;
 	o1.name = this.id;
@@ -3947,11 +4089,12 @@ featureClasses['Level'] = require('../features/Level.js');
 featureClasses['Library'] = require('../features/Library.js');
 featureClasses['Light'] = require('../features/Light.js');
 featureClasses['MonitorPc'] = require('../features/MonitorPc.js');
+featureClasses['PcMac'] = require('../features/PcMac.js');
 featureClasses['Picture'] = require('../features/Picture.js');
 featureClasses['Records'] = require('../features/Records.js');
 featureClasses['Room'] = require('../features/Room.js');
 featureClasses['Router'] = require('../features/Router.js');
-featureClasses['SediaScrivania'] = require('../features/SediaScrivania.js');
+featureClasses['ChairDesk'] = require('../features/ChairDesk.js');
 featureClasses['Server'] = require('../features/Server.js');
 featureClasses['SurveillanceCamera'] = require('../features/SurveillanceCamera.js');
 featureClasses['Table'] = require('../features/Table.js');
@@ -3981,7 +4124,7 @@ var self = module.exports = {
 		return newFeature;
 	}
 }; //close module.exports
-},{"../features/Antenna.js":"/var/www/HIJSON.git/c3d/features/Antenna.js","../features/Archivio.js":"/var/www/HIJSON.git/c3d/features/Archivio.js","../features/Armadietto.js":"/var/www/HIJSON.git/c3d/features/Armadietto.js","../features/BadgeReader.js":"/var/www/HIJSON.git/c3d/features/BadgeReader.js","../features/Bed.js":"/var/www/HIJSON.git/c3d/features/Bed.js","../features/Chair.js":"/var/www/HIJSON.git/c3d/features/Chair.js","../features/ChairObj.js":"/var/www/HIJSON.git/c3d/features/ChairObj.js","../features/CoolingSistem.js":"/var/www/HIJSON.git/c3d/features/CoolingSistem.js","../features/Desk.js":"/var/www/HIJSON.git/c3d/features/Desk.js","../features/DeskOffice.js":"/var/www/HIJSON.git/c3d/features/DeskOffice.js","../features/Door.js":"/var/www/HIJSON.git/c3d/features/Door.js","../features/Drawers.js":"/var/www/HIJSON.git/c3d/features/Drawers.js","../features/External_wall.js":"/var/www/HIJSON.git/c3d/features/External_wall.js","../features/Feature.js":"/var/www/HIJSON.git/c3d/features/Feature.js","../features/FireExtinguisher.js":"/var/www/HIJSON.git/c3d/features/FireExtinguisher.js","../features/GraphNode.js":"/var/www/HIJSON.git/c3d/features/GraphNode.js","../features/Hotspot.js":"/var/www/HIJSON.git/c3d/features/Hotspot.js","../features/Internal_wall.js":"/var/www/HIJSON.git/c3d/features/Internal_wall.js","../features/Level.js":"/var/www/HIJSON.git/c3d/features/Level.js","../features/Library.js":"/var/www/HIJSON.git/c3d/features/Library.js","../features/Light.js":"/var/www/HIJSON.git/c3d/features/Light.js","../features/MonitorPc.js":"/var/www/HIJSON.git/c3d/features/MonitorPc.js","../features/Picture.js":"/var/www/HIJSON.git/c3d/features/Picture.js","../features/Records.js":"/var/www/HIJSON.git/c3d/features/Records.js","../features/Room.js":"/var/www/HIJSON.git/c3d/features/Room.js","../features/Router.js":"/var/www/HIJSON.git/c3d/features/Router.js","../features/SediaScrivania.js":"/var/www/HIJSON.git/c3d/features/SediaScrivania.js","../features/Server.js":"/var/www/HIJSON.git/c3d/features/Server.js","../features/Stair.js":"/var/www/HIJSON.git/c3d/features/Stair.js","../features/SurveillanceCamera.js":"/var/www/HIJSON.git/c3d/features/SurveillanceCamera.js","../features/Table.js":"/var/www/HIJSON.git/c3d/features/Table.js","../features/TableMarble.js":"/var/www/HIJSON.git/c3d/features/TableMarble.js","../features/TorrePc.js":"/var/www/HIJSON.git/c3d/features/TorrePc.js","../features/Tv.js":"/var/www/HIJSON.git/c3d/features/Tv.js","../features/Window.js":"/var/www/HIJSON.git/c3d/features/Window.js","./utilities.js":"/var/www/HIJSON.git/c3d/modules/utilities.js"}],"/var/www/HIJSON.git/c3d/modules/matrixUtilities.js":[function(require,module,exports){
+},{"../features/Antenna.js":"/var/www/HIJSON.git/c3d/features/Antenna.js","../features/Archivio.js":"/var/www/HIJSON.git/c3d/features/Archivio.js","../features/Armadietto.js":"/var/www/HIJSON.git/c3d/features/Armadietto.js","../features/BadgeReader.js":"/var/www/HIJSON.git/c3d/features/BadgeReader.js","../features/Bed.js":"/var/www/HIJSON.git/c3d/features/Bed.js","../features/Chair.js":"/var/www/HIJSON.git/c3d/features/Chair.js","../features/ChairDesk.js":"/var/www/HIJSON.git/c3d/features/ChairDesk.js","../features/ChairObj.js":"/var/www/HIJSON.git/c3d/features/ChairObj.js","../features/CoolingSistem.js":"/var/www/HIJSON.git/c3d/features/CoolingSistem.js","../features/Desk.js":"/var/www/HIJSON.git/c3d/features/Desk.js","../features/DeskOffice.js":"/var/www/HIJSON.git/c3d/features/DeskOffice.js","../features/Door.js":"/var/www/HIJSON.git/c3d/features/Door.js","../features/Drawers.js":"/var/www/HIJSON.git/c3d/features/Drawers.js","../features/External_wall.js":"/var/www/HIJSON.git/c3d/features/External_wall.js","../features/Feature.js":"/var/www/HIJSON.git/c3d/features/Feature.js","../features/FireExtinguisher.js":"/var/www/HIJSON.git/c3d/features/FireExtinguisher.js","../features/GraphNode.js":"/var/www/HIJSON.git/c3d/features/GraphNode.js","../features/Hotspot.js":"/var/www/HIJSON.git/c3d/features/Hotspot.js","../features/Internal_wall.js":"/var/www/HIJSON.git/c3d/features/Internal_wall.js","../features/Level.js":"/var/www/HIJSON.git/c3d/features/Level.js","../features/Library.js":"/var/www/HIJSON.git/c3d/features/Library.js","../features/Light.js":"/var/www/HIJSON.git/c3d/features/Light.js","../features/MonitorPc.js":"/var/www/HIJSON.git/c3d/features/MonitorPc.js","../features/PcMac.js":"/var/www/HIJSON.git/c3d/features/PcMac.js","../features/Picture.js":"/var/www/HIJSON.git/c3d/features/Picture.js","../features/Records.js":"/var/www/HIJSON.git/c3d/features/Records.js","../features/Room.js":"/var/www/HIJSON.git/c3d/features/Room.js","../features/Router.js":"/var/www/HIJSON.git/c3d/features/Router.js","../features/Server.js":"/var/www/HIJSON.git/c3d/features/Server.js","../features/Stair.js":"/var/www/HIJSON.git/c3d/features/Stair.js","../features/SurveillanceCamera.js":"/var/www/HIJSON.git/c3d/features/SurveillanceCamera.js","../features/Table.js":"/var/www/HIJSON.git/c3d/features/Table.js","../features/TableMarble.js":"/var/www/HIJSON.git/c3d/features/TableMarble.js","../features/TorrePc.js":"/var/www/HIJSON.git/c3d/features/TorrePc.js","../features/Tv.js":"/var/www/HIJSON.git/c3d/features/Tv.js","../features/Window.js":"/var/www/HIJSON.git/c3d/features/Window.js","./utilities.js":"/var/www/HIJSON.git/c3d/modules/utilities.js"}],"/var/www/HIJSON.git/c3d/modules/matrixUtilities.js":[function(require,module,exports){
 // (1) dependencies
 var numeric = require('numeric');
 
@@ -4191,8 +4334,8 @@ var self = module.exports = {
 	    camera3D = camera;
 	    
 	    scene.add(camera);
-	    camera.position.set(105,86,105);
-	    camera.up = new THREE.Vector3(0,1,0);
+	    camera.position.set(305,86,105);
+	    camera.up = new THREE.Vector3(-100,50,200);
 	    camera.lookAt(scene.position);
 		
 	    var trackballControls = new THREE.TrackballControls(camera, container3D[0]);

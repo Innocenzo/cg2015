@@ -2113,7 +2113,7 @@
             "properties": 
             {
                 "parent": "suite21",
-                "class": "sediaScrivania",                                            
+                "class": "chairDesk",                                            
                 "tVector": [ 4.6, 3.81, 0],
                 "rVector": [0, 0, 0]
             }
@@ -2183,13 +2183,13 @@
             "properties": 
             {
                 "parent": "suite21",
-                "class": "sediaScrivania",                                            
+                "class": "chairDesk",                                            
                 "tVector": [ 4.6, 9.81, 0],
                 "rVector": [0, 0, 0]
             }
         },
         {
-            "id": "monitorSuite21B",
+            "id": "pcMacSuite21B",
             "type": "Feature",
             "geometry": 
             {
@@ -2199,27 +2199,10 @@
             "properties": 
             {
                 "parent": "suite21",
-                "class": "monitorPc",
+                "class": "pcMac",
                 "height": 1,                
-                "tVector": [ 4.41, 8.95, 1.03],
-                "rVector": [0, 0, 90]
-            }
-        },
-        {
-            "id": "pcSuite21B",
-            "type": "Feature",
-            "geometry": 
-            {
-                "type": "Point",
-                "coordinates": [0, 0]
-            },
-            "properties": 
-            {
-                "parent": "suite21",
-                "class": "torrePc",
-                "height": 1,                
-                "tVector": [ 3.91, 8.95, 1.03],
-                "rVector": [0, 0, 90]
+                "tVector": [ 4.06, 9.05, 1.03],
+                "rVector": [0, 0, 270]
             }
         },
         {
